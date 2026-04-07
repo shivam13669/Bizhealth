@@ -209,7 +209,7 @@ export default function Index() {
             {/* Desktop Menu */}
             <div className="hidden md:flex gap-8">
               {[
-                { name: "Services", href: "#services" },
+                { name: "Services", href: "/services" },
                 { name: "Testimonials", href: "#testimonials" },
                 { name: "Case Studies", href: "#case-studies" },
                 { name: "Contact", href: "#contact" },
@@ -241,7 +241,7 @@ export default function Index() {
           {mobileMenuOpen && (
             <div className="md:hidden pb-4 flex flex-col gap-4">
               {[
-                { name: "Services", href: "#services" },
+                { name: "Services", href: "/services" },
                 { name: "Testimonials", href: "#testimonials" },
                 { name: "Case Studies", href: "#case-studies" },
                 { name: "Contact", href: "#contact" },
