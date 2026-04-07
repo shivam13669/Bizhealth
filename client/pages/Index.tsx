@@ -1,4 +1,5 @@
-import { useEffect, useState, useRef, useCallback } from "react";
+import { useState } from "react";
+
 import {
   ArrowRight,
   CheckCircle,
@@ -15,47 +16,7 @@ import {
 } from "lucide-react";
 
 export default function Index() {
-  const [scrollY, setScrollY] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [visibleElements, setVisibleElements] = useState<Set<string>>(
-    new Set()
-  );
-  const observerRef = useRef<IntersectionObserver | null>(null);
-
-  // Handle scroll animations
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // Setup Intersection Observer for fade-in animations
-  useEffect(() => {
-    observerRef.current = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setVisibleElements((prev) => new Set(prev).add(entry.target.id));
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    const elements = document.querySelectorAll("[data-animate]");
-    elements.forEach((el) => observerRef.current?.observe(el));
-
-    return () => {
-      elements.forEach((el) => observerRef.current?.unobserve(el));
-    };
-  }, []);
-
-  const isVisible = useCallback(
-    (id: string) => visibleElements.has(id),
-    [visibleElements]
-  );
 
   const handleWhatsAppClick = () => {
     window.open(
@@ -209,7 +170,7 @@ export default function Index() {
             {/* Desktop Menu */}
             <div className="hidden md:flex gap-8">
               {[
-                { name: "Services", href: "#services" },
+                { name: "Services", href: "/services" },
                 { name: "Testimonials", href: "#testimonials" },
                 { name: "Case Studies", href: "#case-studies" },
                 { name: "Contact", href: "#contact" },
@@ -241,7 +202,7 @@ export default function Index() {
           {mobileMenuOpen && (
             <div className="md:hidden pb-4 flex flex-col gap-4">
               {[
-                { name: "Services", href: "#services" },
+                { name: "Services", href: "/services" },
                 { name: "Testimonials", href: "#testimonials" },
                 { name: "Case Studies", href: "#case-studies" },
                 { name: "Contact", href: "#contact" },
@@ -425,13 +386,7 @@ export default function Index() {
                 <div
                   key={idx}
                   id={`why-${idx}`}
-                  data-animate={true}
-                  className={`rounded-xl bg-gradient-to-br from-blue-50 to-white border border-blue-100 p-6 hover:shadow-lg hover:border-blue-300 transition-all duration-300 ${
-                    isVisible(`why-${idx}`) ? "animate-fade-in-up" : ""
-                  }`}
-                  style={{
-                    animationDelay: `${idx * 100}ms`,
-                  }}
+                  className="rounded-xl bg-gradient-to-br from-blue-50 to-white border border-blue-100 p-6 hover:shadow-lg hover:border-blue-300 transition-all duration-300"
                 >
                   <div className="flex items-center gap-4 mb-4">
                     <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
@@ -470,15 +425,7 @@ export default function Index() {
                 <div
                   key={service.id}
                   id={`service-${idx}`}
-                  data-animate={true}
-                  className={`bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-2xl hover:border-primary transition-all duration-300 hover:-translate-y-2 group ${
-                    isVisible(`service-${idx}`)
-                      ? "animate-fade-in-up"
-                      : "opacity-0"
-                  }`}
-                  style={{
-                    animationDelay: `${idx * 100}ms`,
-                  }}
+                  className="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-2xl hover:border-primary transition-all duration-300 hover:-translate-y-2 group"
                 >
                   <div className="bg-gradient-to-br from-primary to-blue-700 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                     <Icon className="w-8 h-8 text-white" />
@@ -522,13 +469,7 @@ export default function Index() {
               <div
                 key={idx}
                 id={`case-${idx}`}
-                data-animate={true}
-                className={`bg-gradient-to-br from-white to-blue-50 border border-blue-100 rounded-2xl p-8 hover:shadow-2xl hover:border-primary transition-all duration-300 ${
-                  isVisible(`case-${idx}`) ? "animate-fade-in-up" : ""
-                }`}
-                style={{
-                  animationDelay: `${idx * 100}ms`,
-                }}
+                className="bg-gradient-to-br from-white to-blue-50 border border-blue-100 rounded-2xl p-8 hover:shadow-2xl hover:border-primary transition-all duration-300"
               >
                 <div className="grid md:grid-cols-2 gap-8">
                   <div>
@@ -583,13 +524,7 @@ export default function Index() {
               <div
                 key={idx}
                 id={`testimonial-${idx}`}
-                data-animate={true}
-                className={`bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-xl hover:border-primary transition-all duration-300 ${
-                  isVisible(`testimonial-${idx}`) ? "animate-fade-in-up" : ""
-                }`}
-                style={{
-                  animationDelay: `${idx * 100}ms`,
-                }}
+                className="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-xl hover:border-primary transition-all duration-300"
               >
                 <div className="flex gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
@@ -638,13 +573,7 @@ export default function Index() {
               <div
                 key={idx}
                 id={`community-${idx}`}
-                data-animate={true}
-                className={`text-center p-8 rounded-2xl border border-gray-200 bg-gradient-to-b from-white to-blue-50 hover:shadow-lg hover:border-primary transition-all ${
-                  isVisible(`community-${idx}`) ? "animate-fade-in-up" : ""
-                }`}
-                style={{
-                  animationDelay: `${idx * 100}ms`,
-                }}
+                className="text-center p-8 rounded-2xl border border-gray-200 bg-gradient-to-b from-white to-blue-50 hover:shadow-lg hover:border-primary transition-all"
               >
                 <div className="text-6xl mb-4 inline-block">{item.icon}</div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">
