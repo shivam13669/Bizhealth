@@ -15,21 +15,12 @@ import {
 } from "lucide-react";
 
 export default function Index() {
-  const [scrollY, setScrollY] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [visibleElements, setVisibleElements] = useState<Set<string>>(
     new Set()
   );
   const observerRef = useRef<IntersectionObserver | null>(null);
 
-  // Handle scroll animations
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   // Setup Intersection Observer for fade-in animations
   useEffect(() => {
