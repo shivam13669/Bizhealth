@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowRight, MessageCircle, Menu, X } from "lucide-react";
+import { ArrowRight, MessageCircle, Menu, X, Mail, Phone, MapPin, Zap, Clock, Users } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 export default function Contact() {
@@ -43,6 +43,24 @@ export default function Contact() {
       console.error("Form submission error:", error);
     }
   };
+
+  const benefits = [
+    {
+      icon: Clock,
+      title: "24hr Response",
+      description: "Quick replies to your inquiries"
+    },
+    {
+      icon: Users,
+      title: "Expert Team",
+      description: "Experienced professionals ready to help"
+    },
+    {
+      icon: Zap,
+      title: "Fast Support",
+      description: "Efficient solutions for your needs"
+    },
+  ];
 
   return (
     <div className="bg-white text-gray-900 min-h-screen">
@@ -142,150 +160,201 @@ export default function Contact() {
 
       {/* Page Container */}
       <div className="pt-20">
-        {/* Hero Section */}
-        <section className="py-16 px-4 bg-gradient-to-br from-white via-blue-50/30 to-white">
-          <div className="max-w-6xl mx-auto text-center mb-16">
-            <h1 className="text-5xl md:text-6xl font-black mb-6 text-gray-900">
-              Get In <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400">Touch</span>
+        {/* Hero Section - Enhanced */}
+        <section className="relative pt-12 pb-20 px-4 overflow-hidden">
+          {/* Background elements */}
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-br from-blue-200 to-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+            <div className="absolute -bottom-32 -left-40 w-80 h-80 bg-gradient-to-tr from-purple-200 to-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-15"></div>
+          </div>
+
+          <div className="max-w-6xl mx-auto relative z-10 text-center">
+            <p className="text-primary font-bold text-sm uppercase tracking-widest mb-4">Contact Us</p>
+            <h1 className="text-6xl md:text-7xl font-black mb-6 text-gray-900 leading-tight">
+              Let's Work
+              <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400">
+                Together
+              </span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Have questions? Our team is here to help you grow your business.
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-12">
+              Have questions about our services? Reach out and let's discuss how we can help your business grow.
             </p>
+          </div>
+
+          {/* Benefits Row */}
+          <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-6 mt-16 relative z-10">
+            {benefits.map((benefit, idx) => {
+              const Icon = benefit.icon;
+              return (
+                <div
+                  key={idx}
+                  className="bg-white border border-gray-200 rounded-2xl p-6 text-center hover:shadow-lg hover:border-primary transition-all duration-300"
+                >
+                  <div className="flex justify-center mb-4">
+                    <div className="bg-gradient-to-br from-primary to-blue-700 w-12 h-12 rounded-lg flex items-center justify-center">
+                      <Icon className="w-6 h-6 text-white" />
+                    </div>
+                  </div>
+                  <h3 className="font-bold text-gray-900 mb-2">{benefit.title}</h3>
+                  <p className="text-sm text-gray-600">{benefit.description}</p>
+                </div>
+              );
+            })}
           </div>
         </section>
 
         {/* Contact Form Section */}
-        <section className="py-24 px-4 bg-gradient-to-b from-white to-blue-50">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12">
-              {/* Left Column - Form */}
-              <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
-                  Send us a message
-                </h2>
-                <p className="text-gray-600 text-lg mb-10">
-                  We'll respond within 24 hours
-                </p>
+        <section className="py-20 px-4 bg-gradient-to-b from-blue-50/50 to-white">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid lg:grid-cols-5 gap-12 items-start">
+              {/* Left Column - Contact Info Cards */}
+              <div className="lg:col-span-2 space-y-6">
+                <div>
+                  <h2 className="text-4xl font-bold text-gray-900 mb-2">Get In Touch</h2>
+                  <p className="text-gray-600">We're here to help and answer any question you might have.</p>
+                </div>
 
-                <form onSubmit={handleContactForm} className="space-y-6">
-                  {/* Two column row for Name and Email */}
-                  <div className="grid grid-cols-2 gap-5">
-                    <div>
-                      <label className="block text-sm font-bold text-gray-700 mb-2">
-                        Name
-                      </label>
-                      <input
-                        type="text"
-                        name="name"
-                        required
-                        className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition placeholder-gray-400 bg-white"
-                        placeholder="John Doe"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-bold text-gray-700 mb-2">
-                        Email
-                      </label>
-                      <input
-                        type="email"
-                        name="email"
-                        required
-                        className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition placeholder-gray-400 bg-white"
-                        placeholder="you@company.com"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Phone */}
-                  <div>
-                    <label className="block text-sm font-bold text-gray-700 mb-2">
-                      Phone
-                    </label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition placeholder-gray-400 bg-white"
-                      placeholder="+91 9999999999"
-                    />
-                  </div>
-
-                  {/* Company */}
-                  <div>
-                    <label className="block text-sm font-bold text-gray-700 mb-2">
-                      Company
-                    </label>
-                    <input
-                      type="text"
-                      name="company"
-                      className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition placeholder-gray-400 bg-white"
-                      placeholder="Your Company"
-                    />
-                  </div>
-
-                  {/* Message */}
-                  <div>
-                    <label className="block text-sm font-bold text-gray-700 mb-2">
-                      Message
-                    </label>
-                    <textarea
-                      name="message"
-                      required
-                      rows={5}
-                      className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition resize-none placeholder-gray-400 bg-white"
-                      placeholder="Tell us about your business needs..."
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="w-full bg-gradient-to-r from-primary to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-4 px-8 rounded-xl transition-all hover:shadow-xl shadow-lg inline-flex items-center justify-center gap-2"
+                {/* Contact Cards */}
+                <div className="space-y-5 mt-8">
+                  {/* Phone Card */}
+                  <a
+                    href="tel:+919999999999"
+                    className="group block bg-gradient-to-br from-blue-50 to-blue-100/50 border border-blue-200 rounded-2xl p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
                   >
-                    Send Message <ArrowRight className="w-5 h-5" />
-                  </button>
-                </form>
+                    <div className="flex items-start gap-4">
+                      <div className="bg-gradient-to-br from-blue-500 to-blue-600 w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                        <Phone className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-1">Phone</p>
+                        <p className="text-lg font-bold text-gray-900">+91 9999 999 999</p>
+                      </div>
+                    </div>
+                  </a>
+
+                  {/* Email Card */}
+                  <a
+                    href="mailto:hello@360bizhealth.com"
+                    className="group block bg-gradient-to-br from-green-50 to-green-100/50 border border-green-200 rounded-2xl p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="bg-gradient-to-br from-green-500 to-green-600 w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                        <Mail className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <p className="text-xs font-bold text-green-600 uppercase tracking-widest mb-1">Email</p>
+                        <p className="text-lg font-bold text-gray-900 break-all">hello@360bizhealth.com</p>
+                      </div>
+                    </div>
+                  </a>
+
+                  {/* Location Card */}
+                  <div className="group block bg-gradient-to-br from-purple-50 to-purple-100/50 border border-purple-200 rounded-2xl p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                    <div className="flex items-start gap-4">
+                      <div className="bg-gradient-to-br from-purple-500 to-purple-600 w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                        <MapPin className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <p className="text-xs font-bold text-purple-600 uppercase tracking-widest mb-1">Location</p>
+                        <p className="text-lg font-bold text-gray-900">New York, USA</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* WhatsApp Button */}
+                <button
+                  onClick={handleWhatsAppClick}
+                  className="w-full mt-6 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-xl font-bold inline-flex items-center justify-center gap-3 transition-all hover:shadow-xl shadow-lg"
+                >
+                  <MessageCircle className="w-5 h-5" />
+                  Chat on WhatsApp
+                </button>
               </div>
 
-              {/* Right Column - Contact Information & Illustration */}
-              <div className="flex flex-col justify-center">
-                <img
-                  src="https://cdn.builder.io/api/v1/image/assets%2Fe2670299988f4576b1c2ceb59fdf5fe5%2F1fbe3391d7ad4a658849b2239e2aaea0?format=webp&width=800&height=1200"
-                  alt="Contact illustration"
-                  className="w-full h-auto max-w-2xl mx-auto mb-8"
-                />
+              {/* Right Column - Form */}
+              <div className="lg:col-span-3">
+                <div className="bg-white border border-gray-200 rounded-3xl p-8 md:p-10 shadow-lg hover:shadow-xl transition-shadow">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-8">Send us a Message</h3>
 
-                {/* Contact Info */}
-                <div className="space-y-6">
-                  <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all">
-                    <p className="text-xs font-bold text-primary uppercase tracking-wider mb-2">
-                      Phone
-                    </p>
-                    <a
-                      href="tel:+919999999999"
-                      className="text-xl font-bold text-gray-900 hover:text-primary transition"
+                  <form onSubmit={handleContactForm} className="space-y-6">
+                    {/* Name and Email Row */}
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <label className="block text-sm font-bold text-gray-700 mb-3">
+                          Your Name
+                        </label>
+                        <input
+                          type="text"
+                          name="name"
+                          required
+                          className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition placeholder-gray-400 bg-white hover:border-gray-400"
+                          placeholder="John Doe"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-bold text-gray-700 mb-3">
+                          Email Address
+                        </label>
+                        <input
+                          type="email"
+                          name="email"
+                          required
+                          className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition placeholder-gray-400 bg-white hover:border-gray-400"
+                          placeholder="you@company.com"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Phone and Company Row */}
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <label className="block text-sm font-bold text-gray-700 mb-3">
+                          Phone Number
+                        </label>
+                        <input
+                          type="tel"
+                          name="phone"
+                          className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition placeholder-gray-400 bg-white hover:border-gray-400"
+                          placeholder="+91 9999999999"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-bold text-gray-700 mb-3">
+                          Company Name
+                        </label>
+                        <input
+                          type="text"
+                          name="company"
+                          className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition placeholder-gray-400 bg-white hover:border-gray-400"
+                          placeholder="Your Company"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Message */}
+                    <div>
+                      <label className="block text-sm font-bold text-gray-700 mb-3">
+                        How can we help?
+                      </label>
+                      <textarea
+                        name="message"
+                        required
+                        rows={5}
+                        className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition resize-none placeholder-gray-400 bg-white hover:border-gray-400"
+                        placeholder="Tell us about your business needs and how we can assist you..."
+                      />
+                    </div>
+
+                    <button
+                      type="submit"
+                      className="w-full bg-gradient-to-r from-primary to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-4 px-8 rounded-xl transition-all hover:shadow-xl shadow-lg inline-flex items-center justify-center gap-2"
                     >
-                      +91 9999 999 999
-                    </a>
-                  </div>
-
-                  <div className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all">
-                    <p className="text-xs font-bold text-primary uppercase tracking-wider mb-2">
-                      Email
-                    </p>
-                    <a
-                      href="mailto:hello@360bizhealth.com"
-                      className="text-lg font-bold text-gray-900 hover:text-primary transition break-all"
-                    >
-                      hello@360bizhealth.com
-                    </a>
-                  </div>
-
-                  <button
-                    onClick={handleWhatsAppClick}
-                    className="w-full bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-xl font-bold inline-flex items-center justify-center gap-2 transition-all hover:shadow-xl shadow-lg"
-                  >
-                    <MessageCircle className="w-5 h-5" />
-                    Chat on WhatsApp
-                  </button>
+                      Send Message
+                      <ArrowRight className="w-5 h-5" />
+                    </button>
+                  </form>
                 </div>
               </div>
             </div>
