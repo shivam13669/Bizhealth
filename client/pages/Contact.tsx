@@ -69,13 +69,24 @@ export default function Contact() {
             {/* Desktop Menu */}
             <div className="hidden md:flex gap-8">
               {[
-                { name: "Home", href: "/" },
                 { name: "Services", href: "/services" },
+                { name: "Testimonials", href: "/#testimonials" },
+                { name: "Case Studies", href: "/#case-studies" },
                 { name: "Contact", href: "/contact" },
               ].map((item) => (
                 <button
                   key={item.name}
-                  onClick={() => navigate(item.href)}
+                  onClick={() => {
+                    if (item.href.startsWith("/#")) {
+                      navigate("/");
+                      setTimeout(() => {
+                        const id = item.href.replace("/#", "");
+                        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+                      }, 100);
+                    } else {
+                      navigate(item.href);
+                    }
+                  }}
                   className="text-gray-700 hover:text-primary transition-colors cursor-pointer"
                 >
                   {item.name}
@@ -100,14 +111,23 @@ export default function Contact() {
           {mobileMenuOpen && (
             <div className="md:hidden pb-4 flex flex-col gap-4">
               {[
-                { name: "Home", href: "/" },
                 { name: "Services", href: "/services" },
+                { name: "Testimonials", href: "/#testimonials" },
+                { name: "Case Studies", href: "/#case-studies" },
                 { name: "Contact", href: "/contact" },
               ].map((item) => (
                 <button
                   key={item.name}
                   onClick={() => {
-                    navigate(item.href);
+                    if (item.href.startsWith("/#")) {
+                      navigate("/");
+                      setTimeout(() => {
+                        const id = item.href.replace("/#", "");
+                        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+                      }, 100);
+                    } else {
+                      navigate(item.href);
+                    }
                     setMobileMenuOpen(false);
                   }}
                   className="text-gray-700 hover:text-primary transition-colors cursor-pointer"
@@ -302,6 +322,19 @@ export default function Contact() {
                 </li>
                 <li>
                   <button
+                    onClick={() => {
+                      navigate("/");
+                      setTimeout(() => {
+                        document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
+                      }, 100);
+                    }}
+                    className="text-slate-400 hover:text-primary hover:translate-x-1 transition-all duration-300"
+                  >
+                    Why Choose Us
+                  </button>
+                </li>
+                <li>
+                  <button
                     onClick={() => navigate("/services")}
                     className="text-slate-400 hover:text-primary hover:translate-x-1 transition-all duration-300"
                   >
@@ -310,10 +343,28 @@ export default function Contact() {
                 </li>
                 <li>
                   <button
-                    onClick={() => navigate("/contact")}
+                    onClick={() => {
+                      navigate("/");
+                      setTimeout(() => {
+                        document.getElementById("testimonials")?.scrollIntoView({ behavior: "smooth" });
+                      }, 100);
+                    }}
                     className="text-slate-400 hover:text-primary hover:translate-x-1 transition-all duration-300"
                   >
-                    Contact
+                    Testimonials
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => {
+                      navigate("/");
+                      setTimeout(() => {
+                        document.getElementById("case-studies")?.scrollIntoView({ behavior: "smooth" });
+                      }, 100);
+                    }}
+                    className="text-slate-400 hover:text-primary hover:translate-x-1 transition-all duration-300"
+                  >
+                    Case Studies
                   </button>
                 </li>
               </ul>
