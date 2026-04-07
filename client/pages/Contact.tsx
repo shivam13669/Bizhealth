@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowRight, MessageCircle, Menu, X, Mail, Phone, MapPin, Zap, Clock, Users } from "lucide-react";
+import { ArrowRight, MessageCircle, Menu, X, Mail, Phone, MapPin, ChevronDown } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 export default function Contact() {
@@ -44,23 +44,34 @@ export default function Contact() {
     }
   };
 
-  const benefits = [
+  const faqs = [
     {
-      icon: Clock,
-      title: "24hr Response",
-      description: "Quick replies to your inquiries"
+      question: "What services do you offer?",
+      answer: "We provide comprehensive solutions including HR & HRMS, Statutory Compliance, Financial & Taxation, Insurance Advisory, and IP & Branding services. Each service is tailored to meet your specific business needs."
     },
     {
-      icon: Users,
-      title: "Expert Team",
-      description: "Experienced professionals ready to help"
+      question: "How quickly can you respond to my inquiry?",
+      answer: "We typically respond to all inquiries within 24 hours. For urgent matters, you can reach us via WhatsApp for immediate assistance."
     },
     {
-      icon: Zap,
-      title: "Fast Support",
-      description: "Efficient solutions for your needs"
+      question: "Do you offer customized solutions?",
+      answer: "Yes, absolutely! Every business is unique. We work closely with our clients to understand their specific requirements and provide customized solutions that fit their needs and budget."
+    },
+    {
+      question: "What is your pricing model?",
+      answer: "Our pricing depends on the scope and complexity of your requirements. We offer flexible packages starting from basic support to comprehensive enterprise solutions. Contact us for a personalized quote."
+    },
+    {
+      question: "Can you help with implementation?",
+      answer: "Yes, we provide full implementation support including system setup, data migration, team training, and ongoing support to ensure smooth adoption of our solutions."
+    },
+    {
+      question: "Do you provide ongoing support?",
+      answer: "Yes, we offer comprehensive ongoing support including regular updates, maintenance, consultation, and quick troubleshooting to ensure your business runs smoothly."
     },
   ];
+
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
   return (
     <div className="bg-white text-gray-900 min-h-screen">
@@ -160,50 +171,6 @@ export default function Contact() {
 
       {/* Page Container */}
       <div className="pt-20">
-        {/* Hero Section - Enhanced */}
-        <section className="relative pt-12 pb-20 px-4 overflow-hidden">
-          {/* Background elements */}
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-br from-blue-200 to-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
-            <div className="absolute -bottom-32 -left-40 w-80 h-80 bg-gradient-to-tr from-purple-200 to-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-15"></div>
-          </div>
-
-          <div className="max-w-6xl mx-auto relative z-10 text-center">
-            <p className="text-primary font-bold text-sm uppercase tracking-widest mb-4">Contact Us</p>
-            <h1 className="text-6xl md:text-7xl font-black mb-6 text-gray-900 leading-tight">
-              Let's Work
-              <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400">
-                Together
-              </span>
-            </h1>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-12">
-              Have questions about our services? Reach out and let's discuss how we can help your business grow.
-            </p>
-          </div>
-
-          {/* Benefits Row */}
-          <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-6 mt-16 relative z-10">
-            {benefits.map((benefit, idx) => {
-              const Icon = benefit.icon;
-              return (
-                <div
-                  key={idx}
-                  className="bg-white border border-gray-200 rounded-2xl p-6 text-center hover:shadow-lg hover:border-primary transition-all duration-300"
-                >
-                  <div className="flex justify-center mb-4">
-                    <div className="bg-gradient-to-br from-primary to-blue-700 w-12 h-12 rounded-lg flex items-center justify-center">
-                      <Icon className="w-6 h-6 text-white" />
-                    </div>
-                  </div>
-                  <h3 className="font-bold text-gray-900 mb-2">{benefit.title}</h3>
-                  <p className="text-sm text-gray-600">{benefit.description}</p>
-                </div>
-              );
-            })}
-          </div>
-        </section>
-
         {/* Contact Form Section */}
         <section className="py-20 px-4 bg-gradient-to-b from-blue-50/50 to-white">
           <div className="max-w-7xl mx-auto">
@@ -357,6 +324,46 @@ export default function Contact() {
                   </form>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-20 px-4 bg-white">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                Frequently Asked Questions
+              </h2>
+              <p className="text-xl text-gray-600">
+                Find answers to common questions about our services
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              {faqs.map((faq, idx) => (
+                <div
+                  key={idx}
+                  className="border border-gray-200 rounded-xl overflow-hidden hover:border-primary transition-all duration-300"
+                >
+                  <button
+                    onClick={() => setOpenFaqIndex(openFaqIndex === idx ? null : idx)}
+                    className="w-full flex items-center justify-between p-6 bg-white hover:bg-gradient-to-r hover:from-blue-50 to-transparent transition-colors"
+                  >
+                    <h3 className="text-lg font-bold text-gray-900 text-left">{faq.question}</h3>
+                    <ChevronDown
+                      className={`w-6 h-6 text-primary flex-shrink-0 transition-transform duration-300 ${
+                        openFaqIndex === idx ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+                  {openFaqIndex === idx && (
+                    <div className="px-6 pb-6 bg-gradient-to-b from-blue-50/50 to-white border-t border-gray-100">
+                      <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
         </section>
