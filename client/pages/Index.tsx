@@ -619,6 +619,95 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Contact Section */}
+      <section id="contact" className="py-24 px-4 bg-gradient-to-b from-white to-blue-50">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12">
+            {/* Left Column - Form */}
+            <div>
+              <div className="mb-12">
+                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-2">
+                  Get In Touch
+                </h2>
+                <p className="text-gray-600 text-lg">We'll respond within 24 hours</p>
+              </div>
+
+              <form onSubmit={handleContactForm} className="space-y-6">
+                {/* Two column row for Name and Email */}
+                <div className="grid grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-sm font-bold text-gray-700 mb-2">
+                      Name
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      required
+                      className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition placeholder-gray-400 bg-white"
+                      placeholder="John Doe"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-bold text-gray-700 mb-2">
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      required
+                      className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition placeholder-gray-400 bg-white"
+                      placeholder="you@company.com"
+                    />
+                  </div>
+                </div>
+
+                {/* Phone */}
+                <div>
+                  <label className="block text-sm font-bold text-gray-700 mb-2">
+                    Phone
+                  </label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition placeholder-gray-400 bg-white"
+                    placeholder="+91 9999999999"
+                  />
+                </div>
+
+                {/* Message */}
+                <div>
+                  <label className="block text-sm font-bold text-gray-700 mb-2">
+                    Message
+                  </label>
+                  <textarea
+                    name="message"
+                    required
+                    rows={5}
+                    className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition resize-none placeholder-gray-400 bg-white"
+                    placeholder="Tell us about your business needs..."
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-primary to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-4 px-8 rounded-xl transition-all hover:shadow-xl shadow-lg inline-flex items-center justify-center gap-2"
+                >
+                  Send Message <ArrowRight className="w-5 h-5" />
+                </button>
+              </form>
+            </div>
+
+            {/* Right Column - Contact Illustration */}
+            <div className="flex items-center justify-center">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2Fe2670299988f4576b1c2ceb59fdf5fe5%2F1fbe3391d7ad4a658849b2239e2aaea0?format=webp&width=800&height=1200"
+                alt="Contact illustration"
+                className="w-full h-auto max-w-2xl mx-auto"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Footer */}
       <footer className="bg-gradient-to-b from-slate-900 to-slate-950 text-white">
