@@ -173,7 +173,7 @@ export default function Index() {
                 { name: "Services", href: "/services" },
                 { name: "Testimonials", href: "#testimonials" },
                 { name: "Case Studies", href: "#case-studies" },
-                { name: "Contact", href: "#contact" },
+                { name: "Contact", href: "/contact" },
               ].map((item) => (
                 <a
                   key={item.name}
@@ -205,7 +205,7 @@ export default function Index() {
                 { name: "Services", href: "/services" },
                 { name: "Testimonials", href: "#testimonials" },
                 { name: "Case Studies", href: "#case-studies" },
-                { name: "Contact", href: "#contact" },
+                { name: "Contact", href: "/contact" },
               ].map((item) => (
                 <a
                   key={item.name}
@@ -268,7 +268,7 @@ export default function Index() {
 
               <div className="flex flex-col sm:flex-row gap-4 mb-12">
                 <a
-                  href="#contact"
+                  href="/contact"
                   className="bg-primary hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-bold inline-flex items-center justify-center gap-2 transition-all shadow-lg hover:shadow-xl"
                 >
                   Get Started <ArrowRight className="w-5 h-5" />
@@ -603,7 +603,7 @@ export default function Index() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="#contact"
+              href="/contact"
               className="bg-white hover:bg-gray-50 text-primary px-10 py-4 rounded-lg font-bold inline-flex items-center justify-center gap-2 transition-all hover:shadow-2xl shadow-lg"
             >
               Schedule Consultation <ArrowRight className="w-5 h-5" />
@@ -619,7 +619,7 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Contact Form Section */}
+      {/* Contact Section */}
       <section id="contact" className="py-24 px-4 bg-gradient-to-b from-white to-blue-50">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12">
