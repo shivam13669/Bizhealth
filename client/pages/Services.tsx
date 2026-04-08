@@ -182,7 +182,7 @@ export default function Services() {
 
       <main className="pt-16">
         {/* Hero Section */}
-        <section className="relative min-h-screen pt-32 pb-20 px-4 overflow-hidden flex items-center">
+        <section className="relative min-h-screen pt-20 pb-20 px-4 overflow-hidden flex items-center">
           {/* Animated Background elements */}
           <div className="absolute inset-0 overflow-hidden">
             {/* Top right orb */}
