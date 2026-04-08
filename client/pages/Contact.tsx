@@ -249,8 +249,8 @@ export default function Contact() {
                     {/* Name and Email Row */}
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-sm font-bold text-gray-700 mb-3">
-                          Your Name
+                        <label className="block text-sm font-bold text-gray-700 mb-2">
+                          Name
                         </label>
                         <input
                           type="text"
@@ -261,8 +261,8 @@ export default function Contact() {
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-bold text-gray-700 mb-3">
-                          Email Address
+                        <label className="block text-sm font-bold text-gray-700 mb-2">
+                          Email
                         </label>
                         <input
                           type="email"
@@ -274,43 +274,30 @@ export default function Contact() {
                       </div>
                     </div>
 
-                    {/* Phone and Company Row */}
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div>
-                        <label className="block text-sm font-bold text-gray-700 mb-3">
-                          Phone Number
-                        </label>
-                        <input
-                          type="tel"
-                          name="phone"
-                          className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition placeholder-gray-400 bg-white hover:border-gray-400"
-                          placeholder="+91 9999999999"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-sm font-bold text-gray-700 mb-3">
-                          Company Name
-                        </label>
-                        <input
-                          type="text"
-                          name="company"
-                          className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition placeholder-gray-400 bg-white hover:border-gray-400"
-                          placeholder="Your Company"
-                        />
-                      </div>
+                    {/* Phone */}
+                    <div>
+                      <label className="block text-sm font-bold text-gray-700 mb-2">
+                        Phone
+                      </label>
+                      <input
+                        type="tel"
+                        name="phone"
+                        className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition placeholder-gray-400 bg-white hover:border-gray-400"
+                        placeholder="+91 9999999999"
+                      />
                     </div>
 
                     {/* Message */}
                     <div>
-                      <label className="block text-sm font-bold text-gray-700 mb-3">
-                        How can we help?
+                      <label className="block text-sm font-bold text-gray-700 mb-2">
+                        Message
                       </label>
                       <textarea
                         name="message"
                         required
                         rows={5}
                         className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition resize-none placeholder-gray-400 bg-white hover:border-gray-400"
-                        placeholder="Tell us about your business needs and how we can assist you..."
+                        placeholder="Tell us about your business needs..."
                       />
                     </div>
 
