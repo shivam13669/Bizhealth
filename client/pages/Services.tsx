@@ -10,6 +10,7 @@ import {
   Menu,
   X,
   MessageCircle,
+  CheckCircle,
 } from "lucide-react";
 
 const services = [
@@ -19,24 +20,32 @@ const services = [
       "Complete HR solutions including payroll, attendance, ESS, and automation.",
     icon: Users,
     features: ["Payroll Management", "Attendance Tracking", "Employee Portal"],
+    color: "from-blue-500 to-blue-600",
+    bgColor: "from-blue-50 to-blue-100/50",
   },
   {
     title: "Statutory Compliance",
     description: "PF, ESIC, PT, LWF, labour law compliance, filings, and audits.",
     icon: FileCheck,
     features: ["PF Filing", "ESIC Compliance", "Labour Law Audit"],
+    color: "from-green-500 to-green-600",
+    bgColor: "from-green-50 to-green-100/50",
   },
   {
     title: "Financial & Taxation",
     description: "GST, income tax, and strategic financial advisory support.",
     icon: DollarSign,
     features: ["GST Compliance", "Income Tax Planning", "Financial Advisory"],
+    color: "from-purple-500 to-purple-600",
+    bgColor: "from-purple-50 to-purple-100/50",
   },
   {
     title: "Insurance Advisory",
     description: "Group health, accident, and corporate insurance solutions.",
     icon: Shield,
     features: ["Group Health Plans", "Corporate Insurance", "Claims Support"],
+    color: "from-orange-500 to-orange-600",
+    bgColor: "from-orange-50 to-orange-100/50",
   },
   {
     title: "IP & Branding",
@@ -44,6 +53,23 @@ const services = [
       "Trademark registration, copyright protection, and professional branding.",
     icon: Brain,
     features: ["Trademark Filing", "Copyright Protection", "Logo Design"],
+    color: "from-pink-500 to-pink-600",
+    bgColor: "from-pink-50 to-pink-100/50",
+  },
+];
+
+const benefits = [
+  {
+    title: "Expert Team",
+    description: "10+ years of experience across all service areas",
+  },
+  {
+    title: "Quick Turnaround",
+    description: "Fast implementation with minimal disruption",
+  },
+  {
+    title: "Dedicated Support",
+    description: "24/7 customer support and maintenance",
   },
 ];
 
@@ -59,7 +85,7 @@ export default function Services() {
   };
 
   return (
-    <div className="min-h-screen bg-white text-gray-900">
+    <div className="bg-white text-gray-900 min-h-screen">
       {/* WhatsApp Floating Button */}
       <button
         onClick={handleWhatsAppClick}
@@ -155,71 +181,112 @@ export default function Services() {
       </nav>
 
       <main className="pt-16">
-        <section className="bg-gradient-to-br from-primary/5 via-white to-primary/10">
-          <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-            <div className="max-w-3xl">
-              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-primary">
-                Services
-              </p>
-              <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-                End-to-end business support for HR, compliance, finance, and growth.
+        {/* Hero Section */}
+        <section className="relative py-20 px-4 overflow-hidden">
+          {/* Background elements */}
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-br from-blue-200 to-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+            <div className="absolute -bottom-32 -left-40 w-80 h-80 bg-gradient-to-tr from-purple-200 to-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-15"></div>
+          </div>
+
+          <div className="max-w-7xl mx-auto relative z-10">
+            <div className="text-center mb-12">
+              <p className="text-primary font-bold text-sm uppercase tracking-widest mb-4">Our Services</p>
+              <h1 className="text-5xl md:text-6xl font-black mb-6 text-gray-900 leading-tight">
+                Comprehensive Business
+                <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400">
+                  Solutions
+                </span>
               </h1>
-              <p className="mt-6 text-lg leading-8 text-gray-600">
-                Explore the core services we provide to help businesses stay compliant,
-                improve operations, and scale with confidence.
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                End-to-end support for HR, compliance, finance, and growth. We help 500+ businesses stay compliant, improve operations, and scale with confidence.
               </p>
             </div>
-          </div>
-        </section>
 
-        <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {services.map((service) => {
-              const Icon = service.icon;
-
-              return (
-                <article
-                  key={service.title}
-                  className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
+            {/* Benefits Row */}
+            <div className="grid md:grid-cols-3 gap-6 mt-16">
+              {benefits.map((benefit, idx) => (
+                <div
+                  key={idx}
+                  className="bg-white border border-gray-200 rounded-xl p-6 text-center hover:shadow-lg hover:border-primary transition-all"
                 >
-                  <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                    <Icon className="h-7 w-7" />
-                  </div>
-                  <h2 className="text-xl font-semibold text-gray-900">{service.title}</h2>
-                  <p className="mt-3 text-sm leading-6 text-gray-600">
-                    {service.description}
-                  </p>
-                  <ul className="mt-5 space-y-2 text-sm text-gray-700">
-                    {service.features.map((feature) => (
-                      <li key={feature} className="flex items-center gap-2">
-                        <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </article>
-              );
-            })}
+                  <h3 className="font-bold text-gray-900 mb-2">{benefit.title}</h3>
+                  <p className="text-sm text-gray-600">{benefit.description}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
-        <section className="border-t border-gray-100 bg-gray-50">
-          <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-16 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-            <div>
-              <h2 className="text-3xl font-bold text-gray-900">
-                Need help choosing the right service?
-              </h2>
-              <p className="mt-3 max-w-2xl text-gray-600">
-                Reach out and we can suggest the best setup for your business needs.
-              </p>
+        {/* Services Grid */}
+        <section className="py-20 px-4 bg-gradient-to-b from-blue-50/30 to-white">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {services.map((service, idx) => {
+                const Icon = service.icon;
+                return (
+                  <div
+                    key={idx}
+                    className={`group relative bg-gradient-to-br ${service.bgColor} border border-gray-200 rounded-3xl p-8 hover:shadow-2xl hover:border-primary transition-all duration-300 hover:-translate-y-2`}
+                  >
+                    {/* Icon Container */}
+                    <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                      <Icon className="w-8 h-8 text-white" />
+                    </div>
+
+                    {/* Title and Description */}
+                    <h2 className="text-2xl font-bold text-gray-900 mb-3">{service.title}</h2>
+                    <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
+
+                    {/* Features List */}
+                    <ul className="space-y-3">
+                      {service.features.map((feature, featureIdx) => (
+                        <li key={featureIdx} className="flex items-center gap-3">
+                          <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                          <span className="text-gray-700">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    {/* Hover Effect */}
+                    <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-primary/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                  </div>
+                );
+              })}
             </div>
-            <button
-              onClick={handleWhatsAppClick}
-              className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-primary/90"
-            >
-              Talk on WhatsApp
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </button>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-20 px-4 bg-gradient-to-r from-primary via-blue-600 to-primary text-white relative overflow-hidden">
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full mix-blend-screen filter blur-3xl"></div>
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full mix-blend-screen filter blur-3xl"></div>
+          </div>
+
+          <div className="max-w-4xl mx-auto text-center relative z-10">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Ready to Transform Your Business?
+            </h2>
+            <p className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto">
+              Let's discuss which services are the perfect fit for your business needs.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button
+                onClick={() => navigate("/contact")}
+                className="bg-white hover:bg-gray-50 text-primary px-8 py-4 rounded-xl font-bold inline-flex items-center justify-center gap-2 transition-all hover:shadow-2xl shadow-lg"
+              >
+                Schedule Consultation <ArrowRight className="w-5 h-5" />
+              </button>
+              <button
+                onClick={handleWhatsAppClick}
+                className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-xl font-bold inline-flex items-center justify-center gap-2 transition-all hover:shadow-2xl shadow-lg"
+              >
+                <MessageCircle className="w-5 h-5" />
+                Chat on WhatsApp
+              </button>
+            </div>
           </div>
         </section>
       </main>
