@@ -2,72 +2,13 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   ArrowRight,
-  Brain,
-  DollarSign,
-  FileCheck,
-  Shield,
-  Users,
   MessageCircle,
   CheckCircle,
-  TrendingUp,
 } from "lucide-react";
+import { servicesData } from "@shared/services";
 
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
-
-const services = [
-  {
-    title: "HR Technology & HRMS",
-    description:
-      "Complete HR solutions including payroll, attendance, ESS, and automation.",
-    icon: Users,
-    features: ["Payroll Management", "Attendance Tracking", "Employee Portal"],
-    color: "from-blue-500 to-blue-600",
-    bgColor: "from-blue-50 to-blue-100/50",
-  },
-  {
-    title: "Statutory Compliance",
-    description: "PF, ESIC, PT, LWF, labour law compliance, filings, and audits.",
-    icon: FileCheck,
-    features: ["PF Filing", "ESIC Compliance", "Labour Law Audit"],
-    color: "from-green-500 to-green-600",
-    bgColor: "from-green-50 to-green-100/50",
-  },
-  {
-    title: "Financial & Taxation",
-    description: "GST, income tax, and strategic financial advisory support.",
-    icon: DollarSign,
-    features: ["GST Compliance", "Income Tax Planning", "Financial Advisory"],
-    color: "from-purple-500 to-purple-600",
-    bgColor: "from-purple-50 to-purple-100/50",
-  },
-  {
-    title: "Insurance Advisory",
-    description: "Group health, accident, and corporate insurance solutions.",
-    icon: Shield,
-    features: ["Group Health Plans", "Corporate Insurance", "Claims Support"],
-    color: "from-orange-500 to-orange-600",
-    bgColor: "from-orange-50 to-orange-100/50",
-  },
-  {
-    title: "IP & Branding",
-    description:
-      "Trademark registration, copyright protection, and professional branding.",
-    icon: Brain,
-    features: ["Trademark Filing", "Copyright Protection", "Logo Design"],
-    color: "from-pink-500 to-pink-600",
-    bgColor: "from-pink-50 to-pink-100/50",
-  },
-  {
-    title: "Website Development & SEO",
-    description:
-      "Professional website development, SEO optimization, and digital marketing solutions by Khoobneek",
-    icon: TrendingUp,
-    features: ["Website Development", "SEO Optimization", "Digital Marketing"],
-    color: "from-teal-500 to-teal-600",
-    bgColor: "from-teal-50 to-teal-100/50",
-  },
-];
 
 const benefits = [
   {
@@ -84,6 +25,57 @@ const benefits = [
   },
 ];
 
+const testimonials = [
+  {
+    name: "Rajesh Kumar",
+    company: "Tech Startup (25 employees)",
+    role: "Founder",
+    feedback: "Saved us 15+ hours every month on payroll processing. Their compliance support is a lifesaver.",
+    rating: 5,
+  },
+  {
+    name: "Priya Sharma",
+    company: "E-Commerce SME (180 employees)",
+    role: "HR Manager",
+    feedback: "Zero compliance issues since we partnered. Their proactive approach prevents problems before they happen.",
+    rating: 5,
+  },
+  {
+    name: "Amit Patel",
+    company: "Manufacturing (400 employees)",
+    role: "Operations Head",
+    feedback: "Professional service with genuine care. They feel like an extension of our team, not just a vendor.",
+    rating: 5,
+  },
+];
+
+const caseStudies = [
+  {
+    company: "E-Commerce Startup",
+    size: "40 employees",
+    challenge: "Spending 25 hours/month on payroll, compliance errors costing penalties",
+    solution: "Complete payroll automation + compliance management",
+    results: ["Reduced payroll time by 95%", "Zero compliance penalties", "20+ hours saved monthly"],
+    savingsAmount: "₹2.5L annually",
+  },
+  {
+    company: "Manufacturing SME",
+    size: "200 employees",
+    challenge: "Complex compliance across 3 locations, manual filing causing delays",
+    solution: "Multi-location HRMS + statutory compliance automation",
+    results: ["All filings 100% on time", "Reduced HR workload by 60%", "Centralized reporting"],
+    savingsAmount: "₹8L+ annually",
+  },
+  {
+    company: "Service Company",
+    size: "80 employees",
+    challenge: "No proper tax planning, overpaying taxes every year",
+    solution: "Comprehensive tax planning + financial advisory",
+    results: ["15% tax reduction", "Improved financial visibility", "Better cash flow planning"],
+    savingsAmount: "₹12L annually",
+  },
+];
+
 export default function Services() {
   const navigate = useNavigate();
 
@@ -92,6 +84,10 @@ export default function Services() {
       "https://wa.me/919999999999?text=Hi%20360%20Biz%20Health,%20I%20would%20like%20to%20know%20more%20about%20your%20services.",
       "_blank"
     );
+  };
+
+  const handleServiceClick = (slug: string) => {
+    navigate(`/services/${slug}`);
   };
 
   return (
@@ -140,15 +136,15 @@ export default function Services() {
               </div>
 
               <h1 className="text-6xl md:text-7xl font-black mb-8 text-gray-900 leading-tight">
-                Business Solutions
+                HR, Compliance & Finance
                 <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500">
-                  That Scale
+                  Made Simple
                 </span>
               </h1>
 
               <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-12 leading-relaxed">
-                Everything your business needs to grow. From HR automation to compliance management, taxation, insurance, and IP protection — we've got you covered.
+                Stop juggling spreadsheets and compliance deadlines. We automate payroll, ensure compliance, and handle taxes—so you can focus on growing your business.
               </p>
 
               {/* CTA Buttons in Hero */}
@@ -186,18 +182,22 @@ export default function Services() {
             </div>
 
             {/* Stats Row */}
-            <div className="grid sm:grid-cols-3 gap-8 mt-16 text-center">
-              <div>
-                <div className="text-4xl md:text-5xl font-black text-primary mb-2">100+</div>
-                <p className="text-gray-600 font-medium">Happy Clients</p>
+            <div className="grid sm:grid-cols-4 gap-6 mt-16 text-center">
+              <div className="bg-white/50 backdrop-blur border border-white/20 rounded-2xl p-6">
+                <div className="text-4xl md:text-5xl font-black text-primary mb-2">120+</div>
+                <p className="text-gray-700 font-semibold">Happy Clients</p>
               </div>
-              <div>
-                <div className="text-4xl md:text-5xl font-black text-primary mb-2">5+</div>
-                <p className="text-gray-600 font-medium">Years Experience</p>
+              <div className="bg-white/50 backdrop-blur border border-white/20 rounded-2xl p-6">
+                <div className="text-4xl md:text-5xl font-black text-primary mb-2">₹50Cr+</div>
+                <p className="text-gray-700 font-semibold">Payroll Processed</p>
               </div>
-              <div>
+              <div className="bg-white/50 backdrop-blur border border-white/20 rounded-2xl p-6">
+                <div className="text-4xl md:text-5xl font-black text-primary mb-2">95%</div>
+                <p className="text-gray-700 font-semibold">Client Retention</p>
+              </div>
+              <div className="bg-white/50 backdrop-blur border border-white/20 rounded-2xl p-6">
                 <div className="text-4xl md:text-5xl font-black text-primary mb-2">24/7</div>
-                <p className="text-gray-600 font-medium">Support Available</p>
+                <p className="text-gray-700 font-semibold">Support Available</p>
               </div>
             </div>
           </div>
@@ -206,38 +206,188 @@ export default function Services() {
         {/* Services Grid */}
         <section className="py-20 px-4 bg-gradient-to-b from-blue-50/30 to-white">
           <div className="max-w-7xl mx-auto">
+            <h2 className="text-4xl font-bold text-center mb-4 text-gray-900">
+              Problem-Solving Solutions for Your Business
+            </h2>
+            <p className="text-center text-gray-600 mb-16 max-w-2xl mx-auto">
+              We don't just provide services — we solve real business problems and deliver measurable results.
+            </p>
+            
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {services.map((service, idx) => {
+              {servicesData.map((service, idx) => {
                 const Icon = service.icon;
                 return (
-                  <div
+                  <button
                     key={idx}
-                    className={`group relative bg-gradient-to-br ${service.bgColor} border border-gray-200 rounded-3xl p-8 hover:shadow-2xl hover:border-primary transition-all duration-300 hover:-translate-y-2`}
+                    onClick={() => handleServiceClick(service.slug)}
+                    className={`group relative bg-gradient-to-br ${service.bgColor} border border-gray-200 rounded-3xl p-8 hover:shadow-2xl hover:border-primary transition-all duration-300 hover:-translate-y-2 text-left cursor-pointer`}
                   >
                     {/* Icon Container */}
                     <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} mb-6 group-hover:scale-110 transition-transform duration-300`}>
                       <Icon className="w-8 h-8 text-white" />
                     </div>
 
-                    {/* Title and Description */}
-                    <h2 className="text-2xl font-bold text-gray-900 mb-3">{service.title}</h2>
-                    <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
+                    {/* Problem Highlight */}
+                    <p className="text-sm font-semibold text-primary mb-3 italic">{service.problem}</p>
+
+                    {/* Title */}
+                    <h2 className="text-2xl font-bold text-gray-900 mb-2">{service.title}</h2>
+                    
+                    {/* Benefit Callout */}
+                    <div className="bg-white/60 border-l-4 border-primary rounded px-4 py-3 mb-6">
+                      <p className="text-sm font-semibold text-primary">{service.benefit}</p>
+                    </div>
+
+                    {/* Description */}
+                    <p className="text-gray-600 mb-6 leading-relaxed text-sm">{service.description}</p>
 
                     {/* Features List */}
-                    <ul className="space-y-3">
+                    <ul className="space-y-2 mb-6">
                       {service.features.map((feature, featureIdx) => (
-                        <li key={featureIdx} className="flex items-center gap-3">
-                          <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                          <span className="text-gray-700">{feature}</span>
+                        <li key={featureIdx} className="text-gray-700 text-sm font-medium">
+                          {feature}
                         </li>
                       ))}
                     </ul>
 
+                    {/* For Audience */}
+                    <div className="border-t border-gray-300 pt-4">
+                      <p className="text-xs font-semibold text-gray-600 mb-2">IDEAL FOR:</p>
+                      <div className="flex flex-wrap gap-2">
+                        {service.forAudience.map((audience, idx) => (
+                          <span
+                            key={idx}
+                            className="text-xs bg-primary/10 text-primary rounded-full px-3 py-1 font-medium"
+                          >
+                            {audience}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
                     {/* Hover Effect */}
                     <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-primary/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
-                  </div>
+                  </button>
                 );
               })}
+            </div>
+          </div>
+        </section>
+
+        {/* Testimonials Section */}
+        <section className="py-20 px-4 bg-white">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-4xl font-bold text-center mb-4 text-gray-900">
+              Real Results from Real Clients
+            </h2>
+            <p className="text-center text-gray-600 mb-16 max-w-2xl mx-auto">
+              See how businesses like yours are saving time, reducing costs, and staying compliant.
+            </p>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {testimonials.map((testimonial, idx) => (
+                <div
+                  key={idx}
+                  className="bg-gradient-to-br from-blue-50 to-blue-100/50 border border-blue-200 rounded-2xl p-8 hover:shadow-xl transition-all"
+                >
+                  {/* Rating Stars */}
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <span key={i} className="text-yellow-400 text-lg">★</span>
+                    ))}
+                  </div>
+
+                  {/* Testimonial Text */}
+                  <p className="text-gray-700 mb-6 italic font-medium">
+                    "{testimonial.feedback}"
+                  </p>
+
+                  {/* Client Info */}
+                  <div className="border-t border-blue-300 pt-4">
+                    <p className="font-bold text-gray-900">{testimonial.name}</p>
+                    <p className="text-sm text-gray-600">{testimonial.role}</p>
+                    <p className="text-xs text-gray-600 mt-1">{testimonial.company}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Case Studies Section */}
+        <section className="py-20 px-4 bg-gradient-to-b from-blue-50 to-white">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-4xl font-bold text-center mb-4 text-gray-900">
+              Case Studies: Proven Impact
+            </h2>
+            <p className="text-center text-gray-600 mb-16 max-w-2xl mx-auto">
+              How we've helped businesses solve real problems and achieve measurable success.
+            </p>
+
+            <div className="space-y-12">
+              {caseStudies.map((caseStudy, idx) => (
+                <div
+                  key={idx}
+                  className="bg-white border border-gray-200 rounded-3xl p-8 lg:p-12 hover:shadow-2xl transition-all"
+                >
+                  <div className="grid md:grid-cols-2 gap-8 items-center">
+                    {/* Left Side - Company Info */}
+                    <div>
+                      <div className="mb-6">
+                        <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                          {caseStudy.company}
+                        </h3>
+                        <p className="text-gray-600 font-medium">
+                          {caseStudy.size}
+                        </p>
+                      </div>
+
+                      {/* Challenge */}
+                      <div className="mb-8">
+                        <p className="text-sm font-bold text-primary mb-2">CHALLENGE</p>
+                        <p className="text-gray-700 leading-relaxed">
+                          {caseStudy.challenge}
+                        </p>
+                      </div>
+
+                      {/* Solution */}
+                      <div>
+                        <p className="text-sm font-bold text-primary mb-2">SOLUTION</p>
+                        <p className="text-gray-700 leading-relaxed">
+                          {caseStudy.solution}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Right Side - Results */}
+                    <div className="bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-300 rounded-2xl p-8">
+                      <p className="text-sm font-bold text-green-700 mb-4">
+                        RESULTS & IMPACT
+                      </p>
+
+                      <ul className="space-y-4 mb-8">
+                        {caseStudy.results.map((result, resultIdx) => (
+                          <li key={resultIdx} className="flex items-start gap-3">
+                            <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                            <span className="text-gray-900 font-medium">
+                              {result}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      <div className="bg-white rounded-xl p-4 text-center">
+                        <p className="text-xs font-semibold text-gray-600 mb-1">
+                          ANNUAL SAVINGS
+                        </p>
+                        <p className="text-2xl font-bold text-green-600">
+                          {caseStudy.savingsAmount}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -251,24 +401,24 @@ export default function Services() {
 
           <div className="max-w-4xl mx-auto text-center relative z-10">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Ready to Transform Your Business?
+              Stop Wasting Time on Admin Work
             </h2>
             <p className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto">
-              Let's discuss which services are the perfect fit for your business needs.
+              Get a free consultation to see how much time & money you can save with our solutions. No obligation, just honest advice.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={() => navigate("/contact")}
                 className="bg-white hover:bg-gray-50 text-primary px-8 py-4 rounded-xl font-bold inline-flex items-center justify-center gap-2 transition-all hover:shadow-2xl shadow-lg"
               >
-                Schedule Consultation <ArrowRight className="w-5 h-5" />
+                Get Free Consultation <ArrowRight className="w-5 h-5" />
               </button>
               <button
                 onClick={handleWhatsAppClick}
-                className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-xl font-bold inline-flex items-center justify-center gap-2 transition-all hover:shadow-2xl shadow-lg"
+                className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-xl font-bold inline-flex items-center justify-center gap-2 transition-all hover:shadow-2xl shadow-lg border-2 border-transparent hover:border-white"
               >
                 <MessageCircle className="w-5 h-5" />
-                Chat on WhatsApp
+                Chat Now
               </button>
             </div>
           </div>
