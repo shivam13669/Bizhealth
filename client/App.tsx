@@ -17,6 +17,10 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+if (typeof window !== 'undefined') {
+  window.history.scrollRestoration = 'manual';
+}
+
 function ScrollToTop() {
   const { pathname } = useLocation();
 
