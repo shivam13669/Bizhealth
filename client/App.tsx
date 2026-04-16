@@ -6,7 +6,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 import Index from "./pages/Index";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
@@ -17,14 +17,10 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
-if (typeof window !== 'undefined') {
-  window.history.scrollRestoration = 'manual';
-}
-
 function ScrollToTop() {
   const { pathname } = useLocation();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
     window.scrollTo(0, 0);
