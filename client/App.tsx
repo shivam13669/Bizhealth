@@ -17,12 +17,17 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+if (typeof window !== 'undefined') {
+  window.history.scrollRestoration = 'manual';
+}
+
 function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
+    window.scrollTo(0, 0);
   }, [pathname]);
 
   return null;
