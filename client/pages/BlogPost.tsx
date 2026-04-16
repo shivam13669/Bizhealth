@@ -556,74 +556,81 @@ export default function BlogPost() {
       </nav>
 
       <main className="pt-16">
-        {/* Back Button and Breadcrumb */}
-        <section className="py-8 px-4 bg-gray-50 border-b border-gray-200">
-          <div className="max-w-4xl mx-auto">
+        {/* Hero Section */}
+        <section className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white pt-20 pb-16 px-4 overflow-hidden">
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-br from-blue-400 to-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+            <div className="absolute -bottom-32 -left-40 w-80 h-80 bg-gradient-to-tr from-blue-400 to-cyan-400 rounded-full mix-blend-multiply filter blur-3xl opacity-15"></div>
+          </div>
+
+          <div className="max-w-4xl mx-auto relative z-10">
+            {/* Back Button */}
             <button
               onClick={() => navigate("/blog")}
-              className="text-primary hover:text-blue-700 font-semibold flex items-center gap-2 mb-4 transition"
+              className="inline-flex items-center gap-2 text-blue-200 hover:text-white font-semibold mb-8 transition group"
             >
-              ← Back to Blog
+              <span className="group-hover:-translate-x-1 transition-transform">←</span>
+              Back to Blog
             </button>
-            <div className="flex items-center gap-2 text-sm text-gray-600">
-              <span className="bg-primary text-white px-3 py-1 rounded-full text-xs font-bold">
+
+            {/* Category Badge */}
+            <div className="inline-block mb-6">
+              <span className="bg-gradient-to-r from-blue-400 to-purple-400 text-white text-xs font-black px-4 py-2 rounded-full uppercase tracking-widest">
                 {post.category}
               </span>
             </div>
-          </div>
-        </section>
 
-        {/* Article Header */}
-        <section className="py-12 px-4 bg-white">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-6xl mb-6">{post.image}</div>
-            <h1 className="text-5xl md:text-6xl font-black text-gray-900 mb-6 leading-tight">
+            {/* Title */}
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-8 leading-tight">
               {post.title}
             </h1>
 
-            {/* Article Meta */}
-            <div className="flex flex-wrap items-center gap-6 text-gray-600 border-b border-gray-200 pb-6">
-              <div className="flex items-center gap-2">
-                <User className="w-5 h-5" />
-                <span className="font-semibold">{post.author}</span>
+            {/* Meta Information */}
+            <div className="flex flex-col md:flex-row md:items-center gap-6 pt-8 border-t border-white/20">
+              <div className="flex items-center gap-3">
+                <div className="text-3xl">{post.image}</div>
+                <div>
+                  <p className="font-semibold text-white">{post.author}</p>
+                  <p className="text-sm text-blue-200">{post.date}</p>
+                </div>
               </div>
-              <div className="flex items-center gap-2">
-                <span>{post.date}</span>
+
+              <div className="flex items-center gap-6 md:ml-auto">
+                <div className="flex items-center gap-2 text-blue-200">
+                  <Clock className="w-5 h-5" />
+                  <span>{post.readTime}</span>
+                </div>
+                <button
+                  onClick={() => {
+                    const text = `Check out this article: ${post.title} on 360 Biz Health Blog`;
+                    const url = window.location.href;
+                    navigator.share?.({ title: post.title, text, url }).catch(() => {
+                      navigator.clipboard.writeText(`${url}\n\n${text}`);
+                    });
+                  }}
+                  className="flex items-center gap-2 text-blue-200 hover:text-white transition cursor-pointer font-semibold"
+                >
+                  <Share2 className="w-5 h-5" />
+                  <span className="hidden sm:inline">Share</span>
+                </button>
               </div>
-              <div className="flex items-center gap-2">
-                <Clock className="w-5 h-5" />
-                <span>{post.readTime}</span>
-              </div>
-              <button
-                onClick={() => {
-                  const text = `Check out this article: ${post.title} on 360 Biz Health Blog`;
-                  const url = window.location.href;
-                  navigator.share?.({ title: post.title, text, url }).catch(() => {
-                    navigator.clipboard.writeText(`${url}\n\n${text}`);
-                  });
-                }}
-                className="ml-auto flex items-center gap-2 text-primary hover:text-blue-700 transition cursor-pointer"
-              >
-                <Share2 className="w-5 h-5" />
-                Share
-              </button>
             </div>
           </div>
         </section>
 
         {/* Article Content */}
-        <section className="py-12 px-4 bg-white">
-          <div className="max-w-4xl mx-auto prose prose-lg max-w-none">
+        <section className="py-16 px-4 bg-white">
+          <div className="max-w-4xl mx-auto">
             <div
-              className="text-gray-700 leading-relaxed space-y-6"
+              className="text-gray-700 leading-relaxed space-y-6 text-lg"
               dangerouslySetInnerHTML={{
                 __html: post.content
-                  .replace(/<h2>/g, '<h2 class="text-3xl font-bold text-gray-900 mt-8 mb-4">')
-                  .replace(/<h3>/g, '<h3 class="text-2xl font-bold text-gray-900 mt-6 mb-3">')
-                  .replace(/<p>/g, '<p class="text-lg leading-relaxed">')
-                  .replace(/<ul>/g, '<ul class="space-y-3 ml-6 list-disc">')
-                  .replace(/<ol>/g, '<ol class="space-y-3 ml-6 list-decimal">')
-                  .replace(/<li>/g, '<li class="text-lg">'),
+                  .replace(/<h2>/g, '<h2 class="text-4xl font-black text-gray-900 mt-10 mb-6 pt-6">')
+                  .replace(/<h3>/g, '<h3 class="text-2xl font-bold text-gray-900 mt-8 mb-4 pt-4">')
+                  .replace(/<p>/g, '<p class="text-lg leading-relaxed text-gray-700 mb-4">')
+                  .replace(/<ul>/g, '<ul class="space-y-3 ml-8 list-disc my-6">')
+                  .replace(/<ol>/g, '<ol class="space-y-3 ml-8 list-decimal my-6">')
+                  .replace(/<li>/g, '<li class="text-lg text-gray-700">'),
               }}
             />
           </div>
