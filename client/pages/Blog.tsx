@@ -311,11 +311,12 @@ export default function Blog() {
                 {featuredPosts.map((post, idx) => (
                   <div
                     key={post.id}
+                    onClick={() => navigate(`/blog/${post.id}`)}
                     className={`group cursor-pointer ${
                       idx === 0 ? "md:col-span-2 md:row-span-2" : ""
                     }`}
                   >
-                    <div className={`relative overflow-hidden rounded-xl bg-gradient-to-br from-blue-100 to-blue-50 hover:shadow-2xl transition-all duration-300 h-full`}>
+                    <div className={`relative overflow-hidden rounded-xl bg-gradient-to-br from-blue-100 to-blue-50 hover:shadow-2xl transition-all duration-300 h-full hover:-translate-y-2`}>
                       <div className={`flex flex-col h-full p-8 ${idx === 0 ? "justify-between" : ""}`}>
                         <div>
                           <div className="text-5xl md:text-6xl mb-4 group-hover:scale-110 transition-transform duration-300">
@@ -366,6 +367,7 @@ export default function Blog() {
               {filteredPosts.map((post) => (
                 <article
                   key={post.id}
+                  onClick={() => navigate(`/blog/${post.id}`)}
                   className="group border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg hover:border-primary transition-all duration-300 hover:-translate-y-1 cursor-pointer"
                 >
                   {/* Image/Icon Section */}
