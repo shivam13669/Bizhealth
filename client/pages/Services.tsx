@@ -80,7 +80,7 @@ const benefits = [
   },
   {
     title: "Dedicated Support",
-    description: "24/7 customer support and maintenance",
+    description: "Competent Key Account Manager Support",
   },
 ];
 
