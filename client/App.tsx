@@ -5,7 +5,8 @@ import { createRoot } from "react-dom/client";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import Index from "./pages/Index";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
@@ -16,22 +17,45 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+if (typeof window !== 'undefined') {
+  window.history.scrollRestoration = 'manual';
+}
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
+const AppRoutes = () => (
+  <>
+    <ScrollToTop />
+    <Routes>
+      <Route path="/" element={<Index />} />
+      <Route path="/services" element={<Services />} />
+      <Route path="/blog" element={<Blog />} />
+      <Route path="/blog/:id" element={<BlogPost />} />
+      <Route path="/testimonials" element={<Testimonials />} />
+      <Route path="/contact" element={<Contact />} />
+      {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  </>
+);
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:id" element={<BlogPost />} />
-          <Route path="/testimonials" element={<Testimonials />} />
-          <Route path="/contact" element={<Contact />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <AppRoutes />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
