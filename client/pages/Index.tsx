@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import {
   ArrowRight,
@@ -16,6 +17,7 @@ import {
 } from "lucide-react";
 
 export default function Index() {
+  const navigate = useNavigate();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleWhatsAppClick = () => {
@@ -163,25 +165,35 @@ export default function Index() {
       <nav className="fixed top-0 left-0 right-0 bg-white bg-opacity-95 backdrop-blur z-40 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <div className="text-2xl font-bold text-primary">
+            <button
+              onClick={() => navigate("/")}
+              className="text-2xl font-bold text-primary cursor-pointer hover:opacity-80 transition-opacity"
+            >
               360 Biz Health
-            </div>
+            </button>
 
             {/* Desktop Menu */}
             <div className="hidden md:flex gap-8">
               {[
                 { name: "Services", href: "/services" },
-                { name: "Testimonials", href: "#testimonials" },
+                { name: "Blog", href: "/blog" },
+                { name: "Testimonials", href: "/testimonials" },
                 { name: "Case Studies", href: "#case-studies" },
                 { name: "Contact", href: "/contact" },
               ].map((item) => (
-                <a
+                <button
                   key={item.name}
-                  href={item.href}
-                  className="text-gray-700 hover:text-primary transition-colors"
+                  onClick={() => {
+                    if (item.href.startsWith("#")) {
+                      document.getElementById(item.href.replace("#", ""))?.scrollIntoView({ behavior: "smooth" });
+                    } else {
+                      navigate(item.href);
+                    }
+                  }}
+                  className="text-gray-700 hover:text-primary transition-colors font-medium cursor-pointer"
                 >
                   {item.name}
-                </a>
+                </button>
               ))}
             </div>
 
@@ -203,18 +215,25 @@ export default function Index() {
             <div className="md:hidden pb-4 flex flex-col gap-4">
               {[
                 { name: "Services", href: "/services" },
-                { name: "Testimonials", href: "#testimonials" },
+                { name: "Blog", href: "/blog" },
+                { name: "Testimonials", href: "/testimonials" },
                 { name: "Case Studies", href: "#case-studies" },
                 { name: "Contact", href: "/contact" },
               ].map((item) => (
-                <a
+                <button
                   key={item.name}
-                  href={item.href}
-                  className="text-gray-700 hover:text-primary transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={() => {
+                    if (item.href.startsWith("#")) {
+                      document.getElementById(item.href.replace("#", ""))?.scrollIntoView({ behavior: "smooth" });
+                    } else {
+                      navigate(item.href);
+                    }
+                    setMobileMenuOpen(false);
+                  }}
+                  className="text-gray-700 hover:text-primary transition-colors text-left cursor-pointer"
                 >
                   {item.name}
-                </a>
+                </button>
               ))}
             </div>
           )}
@@ -744,10 +763,10 @@ export default function Index() {
             <div>
               <h3 className="text-lg font-bold mb-6 text-white">Quick Links</h3>
               <ul className="space-y-3">
-                <li><a href="#" className="text-slate-400 hover:text-primary hover:translate-x-1 transition-all duration-300 inline-block">Home</a></li>
-                <li><a href="#about" className="text-slate-400 hover:text-primary hover:translate-x-1 transition-all duration-300 inline-block">Why Choose Us</a></li>
-                <li><a href="#services" className="text-slate-400 hover:text-primary hover:translate-x-1 transition-all duration-300 inline-block">Services</a></li>
-                <li><a href="#testimonials" className="text-slate-400 hover:text-primary hover:translate-x-1 transition-all duration-300 inline-block">Testimonials</a></li>
+                <li><button onClick={() => navigate("/")} className="text-slate-400 hover:text-primary hover:translate-x-1 transition-all duration-300 inline-block cursor-pointer">Home</button></li>
+                <li><button onClick={() => navigate("/services")} className="text-slate-400 hover:text-primary hover:translate-x-1 transition-all duration-300 inline-block cursor-pointer">Services</button></li>
+                <li><button onClick={() => navigate("/blog")} className="text-slate-400 hover:text-primary hover:translate-x-1 transition-all duration-300 inline-block cursor-pointer">Blog</button></li>
+                <li><button onClick={() => navigate("/testimonials")} className="text-slate-400 hover:text-primary hover:translate-x-1 transition-all duration-300 inline-block cursor-pointer">Testimonials</button></li>
                 <li><a href="#case-studies" className="text-slate-400 hover:text-primary hover:translate-x-1 transition-all duration-300 inline-block">Case Studies</a></li>
               </ul>
             </div>
