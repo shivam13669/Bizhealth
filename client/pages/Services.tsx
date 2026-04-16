@@ -188,11 +188,11 @@ export default function Services() {
             {/* Stats Row */}
             <div className="grid sm:grid-cols-3 gap-8 mt-16 text-center">
               <div>
-                <div className="text-4xl md:text-5xl font-black text-primary mb-2">500+</div>
+                <div className="text-4xl md:text-5xl font-black text-primary mb-2">100+</div>
                 <p className="text-gray-600 font-medium">Happy Clients</p>
               </div>
               <div>
-                <div className="text-4xl md:text-5xl font-black text-primary mb-2">10+</div>
+                <div className="text-4xl md:text-5xl font-black text-primary mb-2">5+</div>
                 <p className="text-gray-600 font-medium">Years Experience</p>
               </div>
               <div>
