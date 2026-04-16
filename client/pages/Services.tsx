@@ -516,7 +516,7 @@ export default function Services() {
                   <p className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-1">
                     Location
                   </p>
-                  <p className="text-slate-300">New York, USA</p>
+                  <p className="text-slate-300">New Delhi, India</p>
                 </li>
               </ul>
             </div>

@@ -224,7 +224,7 @@ export default function Contact() {
                       </div>
                       <div>
                         <p className="text-xs font-bold text-purple-600 uppercase tracking-widest mb-1">Location</p>
-                        <p className="text-lg font-bold text-gray-900">New York, USA</p>
+                        <p className="text-lg font-bold text-gray-900">New Delhi, India</p>
                       </div>
                     </div>
                   </div>
@@ -510,7 +510,7 @@ export default function Contact() {
                   <p className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-1">
                     Location
                   </p>
-                  <p className="text-slate-300">New York, USA</p>
+                  <p className="text-slate-300">New Delhi, India</p>
                 </li>
               </ul>
             </div>
