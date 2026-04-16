@@ -240,7 +240,7 @@ export default function Index() {
                   <p className="text-sm text-gray-600">Clients</p>
                 </div>
                 <div>
-                  <div className="text-3xl font-black text-primary">10+</div>
+                  <div className="text-3xl font-black text-primary">5+</div>
                   <p className="text-sm text-gray-600">Years</p>
                 </div>
               </div>
@@ -305,7 +305,7 @@ export default function Index() {
               Why Choose Us
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              10+ years of proven expertise serving 500+ businesses
+              5+ years of proven expertise serving 500+ businesses
             </p>
           </div>
 
@@ -314,7 +314,7 @@ export default function Index() {
               {
                 icon: TrendingUp,
                 title: "Proven Track Record",
-                desc: "10+ years helping businesses grow",
+                desc: "5+ years helping businesses grow",
               },
               {
                 icon: Users,
