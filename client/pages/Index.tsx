@@ -12,15 +12,13 @@ import {
   FileCheck,
   DollarSign,
   MessageCircle,
-  Menu,
-  X,
 } from "lucide-react";
 
+import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 
 export default function Index() {
   const navigate = useNavigate();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleWhatsAppClick = () => {
     window.open(
@@ -172,83 +170,7 @@ export default function Index() {
       </button>
 
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 bg-white bg-opacity-95 backdrop-blur z-40 border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <button
-              onClick={() => navigate("/")}
-              className="text-2xl font-bold text-primary cursor-pointer hover:opacity-80 transition-opacity"
-            >
-              360 Biz Health
-            </button>
-
-            {/* Desktop Menu */}
-            <div className="hidden md:flex gap-8">
-              {[
-                { name: "Services", href: "/services" },
-                { name: "Blog", href: "/blog" },
-                { name: "Testimonials", href: "/testimonials" },
-                { name: "Case Studies", href: "#case-studies" },
-                { name: "Contact", href: "/contact" },
-              ].map((item) => (
-                <button
-                  key={item.name}
-                  onClick={() => {
-                    if (item.href.startsWith("#")) {
-                      document.getElementById(item.href.replace("#", ""))?.scrollIntoView({ behavior: "smooth" });
-                    } else {
-                      navigate(item.href);
-                    }
-                  }}
-                  className="text-gray-700 hover:text-primary transition-colors font-medium cursor-pointer"
-                >
-                  {item.name}
-                </button>
-              ))}
-            </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden"
-            >
-              {mobileMenuOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
-            </button>
-          </div>
-
-          {/* Mobile Menu */}
-          {mobileMenuOpen && (
-            <div className="md:hidden pb-4 flex flex-col gap-4">
-              {[
-                { name: "Services", href: "/services" },
-                { name: "Blog", href: "/blog" },
-                { name: "Testimonials", href: "/testimonials" },
-                { name: "Case Studies", href: "#case-studies" },
-                { name: "Contact", href: "/contact" },
-              ].map((item) => (
-                <button
-                  key={item.name}
-                  onClick={() => {
-                    if (item.href.startsWith("#")) {
-                      document.getElementById(item.href.replace("#", ""))?.scrollIntoView({ behavior: "smooth" });
-                    } else {
-                      navigate(item.href);
-                    }
-                    setMobileMenuOpen(false);
-                  }}
-                  className="text-gray-700 hover:text-primary transition-colors text-left cursor-pointer"
-                >
-                  {item.name}
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
-      </nav>
+      <Navigation />
 
       {/* Hero Section */}
       <section className="relative min-h-screen pt-20 px-4 overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-white">
