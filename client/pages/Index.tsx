@@ -100,6 +100,14 @@ export default function Index() {
       icon: Brain,
       features: ["Trademark Filing", "Copyright Protection", "Logo Design"],
     },
+    {
+      id: "khoobneek",
+      title: "Website Development & SEO",
+      description:
+        "Professional website development, SEO optimization, and digital marketing solutions by Khoobneek",
+      icon: TrendingUp,
+      features: ["Website Development", "SEO Optimization", "Digital Marketing"],
+    },
   ];
 
   const testimonials = [
@@ -789,11 +797,11 @@ export default function Index() {
               <ul className="space-y-5">
                 <li>
                   <p className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-1">Phone</p>
-                  <a href="tel:+919999999999" className="text-slate-300 hover:text-primary transition font-semibold">+91 9999 999 999</a>
+                  <a href="tel:+917906003449" className="text-slate-300 hover:text-primary transition font-semibold">+91 79060 03449</a>
                 </li>
                 <li>
                   <p className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-1">Email</p>
-                  <a href="mailto:hello@360bizhealth.com" className="text-slate-300 hover:text-primary transition font-semibold break-all">hello@360bizhealth.com</a>
+                  <a href="mailto:360bizhealth@gmail.com" className="text-slate-300 hover:text-primary transition font-semibold break-all">360bizhealth@gmail.com</a>
                 </li>
                 <li>
                   <p className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-1">Location</p>
@@ -808,7 +816,7 @@ export default function Index() {
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
                 <p className="text-slate-500 text-sm font-medium">
-                  © 2024 360 Biz Health. All rights reserved.
+                  © 2026 360 Biz Health. All rights reserved.
                 </p>
               </div>
               <div className="flex gap-8 md:justify-end">
