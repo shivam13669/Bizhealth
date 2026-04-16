@@ -7,12 +7,13 @@ import {
   FileCheck,
   Shield,
   Users,
-  Menu,
-  X,
   MessageCircle,
   CheckCircle,
   TrendingUp,
 } from "lucide-react";
+
+import Navigation from "../components/Navigation";
+import Footer from "../components/Footer";
 
 const services = [
   {
@@ -85,7 +86,6 @@ const benefits = [
 
 export default function Services() {
   const navigate = useNavigate();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleWhatsAppClick = () => {
     window.open(
@@ -106,91 +106,7 @@ export default function Services() {
       </button>
 
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 bg-white bg-opacity-95 backdrop-blur z-40 border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <button
-              onClick={() => navigate("/")}
-              className="text-2xl font-bold text-primary cursor-pointer hover:opacity-80 transition-opacity"
-            >
-              360 Biz Health
-            </button>
-
-            {/* Desktop Menu */}
-            <div className="hidden md:flex gap-8">
-              {[
-                { name: "Services", href: "/services" },
-                { name: "Blog", href: "/blog" },
-                { name: "Testimonials", href: "/testimonials" },
-                { name: "Case Studies", href: "/#case-studies" },
-                { name: "Contact", href: "/contact" },
-              ].map((item) => (
-                <button
-                  key={item.name}
-                  onClick={() => {
-                    if (item.href.startsWith("/#")) {
-                      navigate("/");
-                      setTimeout(() => {
-                        const id = item.href.replace("/#", "");
-                        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-                      }, 100);
-                    } else {
-                      navigate(item.href);
-                    }
-                  }}
-                  className="text-gray-700 hover:text-primary transition-colors cursor-pointer"
-                >
-                  {item.name}
-                </button>
-              ))}
-            </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden"
-            >
-              {mobileMenuOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
-            </button>
-          </div>
-
-          {/* Mobile Menu */}
-          {mobileMenuOpen && (
-            <div className="md:hidden pb-4 flex flex-col gap-4">
-              {[
-                { name: "Services", href: "/services" },
-                { name: "Blog", href: "/blog" },
-                { name: "Testimonials", href: "/testimonials" },
-                { name: "Case Studies", href: "/#case-studies" },
-                { name: "Contact", href: "/contact" },
-              ].map((item) => (
-                <button
-                  key={item.name}
-                  onClick={() => {
-                    if (item.href.startsWith("/#")) {
-                      navigate("/");
-                      setTimeout(() => {
-                        const id = item.href.replace("/#", "");
-                        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-                      }, 100);
-                    } else {
-                      navigate(item.href);
-                    }
-                    setMobileMenuOpen(false);
-                  }}
-                  className="text-gray-700 hover:text-primary transition-colors cursor-pointer"
-                >
-                  {item.name}
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
-      </nav>
+      <Navigation />
 
       <main className="pt-16">
         {/* Hero Section */}
@@ -272,11 +188,11 @@ export default function Services() {
             {/* Stats Row */}
             <div className="grid sm:grid-cols-3 gap-8 mt-16 text-center">
               <div>
-                <div className="text-4xl md:text-5xl font-black text-primary mb-2">500+</div>
+                <div className="text-4xl md:text-5xl font-black text-primary mb-2">100+</div>
                 <p className="text-gray-600 font-medium">Happy Clients</p>
               </div>
               <div>
-                <div className="text-4xl md:text-5xl font-black text-primary mb-2">10+</div>
+                <div className="text-4xl md:text-5xl font-black text-primary mb-2">5+</div>
                 <p className="text-gray-600 font-medium">Years Experience</p>
               </div>
               <div>
@@ -360,200 +276,7 @@ export default function Services() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-gradient-to-b from-slate-900 to-slate-950 text-white">
-        <div className="max-w-7xl mx-auto px-4 py-20">
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12">
-            {/* Brand Column */}
-            <div className="md:col-span-2">
-              <div className="mb-6">
-                <h2 className="text-4xl font-black text-white mb-2">360 Biz Health</h2>
-                <p className="text-slate-400">Trusted Business Solutions Partner</p>
-              </div>
-              <p className="text-sm text-slate-400 leading-relaxed">
-                Empowering 500+ businesses with comprehensive HR, compliance, taxation, insurance, and IP solutions.
-              </p>
-            </div>
-
-            {/* Quick Links Column */}
-            <div>
-              <h3 className="text-lg font-bold mb-6 text-white">Quick Links</h3>
-              <ul className="space-y-3">
-                <li>
-                  <button
-                    onClick={() => navigate("/")}
-                    className="text-slate-400 hover:text-primary hover:translate-x-1 transition-all duration-300"
-                  >
-                    Home
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => {
-                      navigate("/");
-                      setTimeout(() => {
-                        document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
-                      }, 100);
-                    }}
-                    className="text-slate-400 hover:text-primary hover:translate-x-1 transition-all duration-300"
-                  >
-                    Why Choose Us
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => navigate("/services")}
-                    className="text-slate-400 hover:text-primary hover:translate-x-1 transition-all duration-300"
-                  >
-                    Services
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => navigate("/blog")}
-                    className="text-slate-400 hover:text-primary hover:translate-x-1 transition-all duration-300"
-                  >
-                    Blog
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => navigate("/testimonials")}
-                    className="text-slate-400 hover:text-primary hover:translate-x-1 transition-all duration-300"
-                  >
-                    Testimonials
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => {
-                      navigate("/");
-                      setTimeout(() => {
-                        document.getElementById("case-studies")?.scrollIntoView({ behavior: "smooth" });
-                      }, 100);
-                    }}
-                    className="text-slate-400 hover:text-primary hover:translate-x-1 transition-all duration-300"
-                  >
-                    Case Studies
-                  </button>
-                </li>
-              </ul>
-            </div>
-
-            {/* Services Column */}
-            <div>
-              <h3 className="text-lg font-bold mb-6 text-white">Services</h3>
-              <ul className="space-y-3">
-                <li>
-                  <button
-                    onClick={() => navigate("/services")}
-                    className="text-slate-400 hover:text-primary hover:translate-x-1 transition-all duration-300"
-                  >
-                    HR & Payroll
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => navigate("/services")}
-                    className="text-slate-400 hover:text-primary hover:translate-x-1 transition-all duration-300"
-                  >
-                    Compliance
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => navigate("/services")}
-                    className="text-slate-400 hover:text-primary hover:translate-x-1 transition-all duration-300"
-                  >
-                    Taxation
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => navigate("/services")}
-                    className="text-slate-400 hover:text-primary hover:translate-x-1 transition-all duration-300"
-                  >
-                    Insurance
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => navigate("/services")}
-                    className="text-slate-400 hover:text-primary hover:translate-x-1 transition-all duration-300"
-                  >
-                    IP & Branding
-                  </button>
-                </li>
-              </ul>
-            </div>
-
-            {/* Contact Column */}
-            <div>
-              <h3 className="text-lg font-bold mb-6 text-white">Get In Touch</h3>
-              <ul className="space-y-5">
-                <li>
-                  <p className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-1">
-                    Phone
-                  </p>
-                  <a
-                    href="tel:+917906003449"
-                    className="text-slate-300 hover:text-primary transition font-semibold"
-                  >
-                    +91 79060 03449
-                  </a>
-                </li>
-                <li>
-                  <p className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-1">
-                    Email
-                  </p>
-                  <a
-                    href="mailto:360bizhealth@gmail.com"
-                    className="text-slate-300 hover:text-primary transition font-semibold break-all"
-                  >
-                    360bizhealth@gmail.com
-                  </a>
-                </li>
-                <li>
-                  <p className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-1">
-                    Location
-                  </p>
-                  <p className="text-slate-300">New Delhi, India</p>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Divider */}
-          <div className="border-t border-slate-700/50 pt-10">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div>
-                <p className="text-slate-500 text-sm font-medium">
-                  © 2026 360 Biz Health. All rights reserved.
-                </p>
-              </div>
-              <div className="flex gap-8 md:justify-end">
-                <a
-                  href="#"
-                  className="text-slate-500 hover:text-primary text-sm font-medium transition-colors duration-300"
-                >
-                  Privacy Policy
-                </a>
-                <a
-                  href="#"
-                  className="text-slate-500 hover:text-primary text-sm font-medium transition-colors duration-300"
-                >
-                  Terms & Conditions
-                </a>
-                <a
-                  href="#"
-                  className="text-slate-500 hover:text-primary text-sm font-medium transition-colors duration-300"
-                >
-                  Support
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
