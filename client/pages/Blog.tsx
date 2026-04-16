@@ -542,10 +542,10 @@ export default function Blog() {
                     Phone
                   </p>
                   <a
-                    href="tel:+919999999999"
+                    href="tel:+917906003449"
                     className="text-slate-300 hover:text-primary transition font-semibold"
                   >
-                    +91 9999 999 999
+                    +91 79060 03449
                   </a>
                 </li>
                 <li>
@@ -553,10 +553,10 @@ export default function Blog() {
                     Email
                   </p>
                   <a
-                    href="mailto:hello@360bizhealth.com"
+                    href="mailto:360bizhealth@gmail.com"
                     className="text-slate-300 hover:text-primary transition font-semibold break-all"
                   >
-                    hello@360bizhealth.com
+                    360bizhealth@gmail.com
                   </a>
                 </li>
               </ul>
@@ -567,7 +567,7 @@ export default function Blog() {
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
                 <p className="text-slate-500 text-sm font-medium">
-                  © 2024 360 Biz Health. All rights reserved.
+                  © 2026 360 Biz Health. All rights reserved.
                 </p>
               </div>
               <div className="flex gap-8 md:justify-end">

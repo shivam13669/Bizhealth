@@ -186,7 +186,7 @@ export default function Contact() {
                 <div className="space-y-5 mt-8">
                   {/* Phone Card */}
                   <a
-                    href="tel:+919999999999"
+                    href="tel:+917906003449"
                     className="group block bg-gradient-to-br from-blue-50 to-blue-100/50 border border-blue-200 rounded-2xl p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
                   >
                     <div className="flex items-start gap-4">
@@ -195,14 +195,14 @@ export default function Contact() {
                       </div>
                       <div>
                         <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-1">Phone</p>
-                        <p className="text-lg font-bold text-gray-900">+91 9999 999 999</p>
+                        <p className="text-lg font-bold text-gray-900">+91 79060 03449</p>
                       </div>
                     </div>
                   </a>
 
                   {/* Email Card */}
                   <a
-                    href="mailto:hello@360bizhealth.com"
+                    href="mailto:360bizhealth@gmail.com"
                     className="group block bg-gradient-to-br from-green-50 to-green-100/50 border border-green-200 rounded-2xl p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
                   >
                     <div className="flex items-start gap-4">
@@ -211,7 +211,7 @@ export default function Contact() {
                       </div>
                       <div>
                         <p className="text-xs font-bold text-green-600 uppercase tracking-widest mb-1">Email</p>
-                        <p className="text-lg font-bold text-gray-900 break-all">hello@360bizhealth.com</p>
+                        <p className="text-lg font-bold text-gray-900 break-all">360bizhealth@gmail.com</p>
                       </div>
                     </div>
                   </a>
@@ -224,7 +224,7 @@ export default function Contact() {
                       </div>
                       <div>
                         <p className="text-xs font-bold text-purple-600 uppercase tracking-widest mb-1">Location</p>
-                        <p className="text-lg font-bold text-gray-900">New York, USA</p>
+                        <p className="text-lg font-bold text-gray-900">New Delhi, India</p>
                       </div>
                     </div>
                   </div>
@@ -489,10 +489,10 @@ export default function Contact() {
                     Phone
                   </p>
                   <a
-                    href="tel:+919999999999"
+                    href="tel:+917906003449"
                     className="text-slate-300 hover:text-primary transition font-semibold"
                   >
-                    +91 9999 999 999
+                    +91 79060 03449
                   </a>
                 </li>
                 <li>
@@ -500,17 +500,17 @@ export default function Contact() {
                     Email
                   </p>
                   <a
-                    href="mailto:hello@360bizhealth.com"
+                    href="mailto:360bizhealth@gmail.com"
                     className="text-slate-300 hover:text-primary transition font-semibold break-all"
                   >
-                    hello@360bizhealth.com
+                    360bizhealth@gmail.com
                   </a>
                 </li>
                 <li>
                   <p className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-1">
                     Location
                   </p>
-                  <p className="text-slate-300">New York, USA</p>
+                  <p className="text-slate-300">New Delhi, India</p>
                 </li>
               </ul>
             </div>
@@ -521,7 +521,7 @@ export default function Contact() {
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
                 <p className="text-slate-500 text-sm font-medium">
-                  © 2024 360 Biz Health. All rights reserved.
+                  © 2026 360 Biz Health. All rights reserved.
                 </p>
               </div>
               <div className="flex gap-8 md:justify-end">
