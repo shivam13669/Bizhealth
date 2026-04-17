@@ -226,7 +226,7 @@ export default function Services() {
                   <button
                     key={idx}
                     onClick={() => handleServiceClick(service.slug)}
-                    className={`group relative bg-gradient-to-br ${service.bgColor} border border-gray-200 rounded-3xl p-8 hover:shadow-2xl hover:border-primary transition-all duration-300 hover:-translate-y-2 text-left cursor-pointer`}
+                    className={`group relative bg-white border border-gray-200 rounded-3xl p-8 hover:shadow-2xl hover:border-primary transition-all duration-300 hover:-translate-y-2 text-left cursor-pointer`}
                   >
                     {/* Icon Container */}
                     <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} mb-6 group-hover:scale-110 transition-transform duration-300`}>
@@ -293,8 +293,8 @@ export default function Services() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {/* Trust Reason 1 */}
               <div className="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-lg hover:border-primary transition-all">
-                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-4">
-                  <Award className="w-6 h-6 text-blue-600" />
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center mb-4">
+                  <Award className="w-7 h-7 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">
                   10+ Years Experience
@@ -306,8 +306,8 @@ export default function Services() {
 
               {/* Trust Reason 2 */}
               <div className="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-lg hover:border-primary transition-all">
-                <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mb-4">
-                  <Users className="w-6 h-6 text-green-600" />
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center mb-4">
+                  <Users className="w-7 h-7 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">
                   Expert Team
@@ -319,8 +319,8 @@ export default function Services() {
 
               {/* Trust Reason 3 */}
               <div className="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-lg hover:border-primary transition-all">
-                <div className="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center mb-4">
-                  <Shield className="w-6 h-6 text-purple-600" />
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center mb-4">
+                  <Shield className="w-7 h-7 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">
                   Zero Compliance Issues
@@ -332,8 +332,8 @@ export default function Services() {
 
               {/* Trust Reason 4 */}
               <div className="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-lg hover:border-primary transition-all">
-                <div className="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center mb-4">
-                  <TrendingUp className="w-6 h-6 text-orange-600" />
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center mb-4">
+                  <TrendingUp className="w-7 h-7 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">
                   Proven ROI
@@ -345,8 +345,8 @@ export default function Services() {
 
               {/* Trust Reason 5 */}
               <div className="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-lg hover:border-primary transition-all">
-                <div className="w-12 h-12 rounded-full bg-pink-100 flex items-center justify-center mb-4">
-                  <Handshake className="w-6 h-6 text-pink-600" />
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-pink-500 to-pink-600 flex items-center justify-center mb-4">
+                  <Handshake className="w-7 h-7 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">
                   Dedicated Support
@@ -358,8 +358,8 @@ export default function Services() {
 
               {/* Trust Reason 6 */}
               <div className="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-lg hover:border-primary transition-all">
-                <div className="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mb-4">
-                  <Zap className="w-6 h-6 text-indigo-600" />
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-600 flex items-center justify-center mb-4">
+                  <Zap className="w-7 h-7 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">
                   Quick Implementation
