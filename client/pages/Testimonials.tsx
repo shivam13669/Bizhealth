@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSEO } from "../hooks/use-seo";
 import {
   MessageCircle,
   Star,
@@ -74,6 +75,20 @@ const testimonials = [
 
 export default function Testimonials() {
   const navigate = useNavigate();
+
+  useSEO({
+    title: "Client Testimonials & Success Stories | 360 Biz Health Reviews",
+    description: "Read what our 120+ happy clients say about our HR, payroll, compliance & tax services. 95% client retention & proven results.",
+    keywords: "client testimonials, success stories, customer reviews, 360 biz health reviews",
+    canonical: "https://360bizhealth.com/testimonials",
+    url: "https://360bizhealth.com/testimonials",
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: "Client Testimonials",
+      description: "Success stories and testimonials from 360 Biz Health clients"
+    }
+  });
 
   const handleWhatsAppClick = () => {
     window.open(

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSEO } from "../hooks/use-seo";
 import {
   ArrowRight,
   MessageCircle,
@@ -84,6 +85,75 @@ const caseStudies = [
 
 export default function Services() {
   const navigate = useNavigate();
+
+  useSEO({
+    title: "HR, Compliance & Finance Services | Payroll Automation, Tax Planning",
+    description: "Complete HR, payroll automation, statutory compliance, tax planning & financial advisory services for startups & SMEs. Save 20+ hours monthly & reduce taxes by 15-25%.",
+    keywords: "payroll automation, HR services, compliance management, tax planning, statutory compliance, ESIC, PF filing, HR outsourcing, financial advisory, tax consultant",
+    canonical: "https://360bizhealth.com/services",
+    url: "https://360bizhealth.com/services",
+    type: "service",
+    image: "https://360bizhealth.com/logo.png",
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "@graph": [
+        {
+          "@type": "Service",
+          "@id": "https://360bizhealth.com/#payroll",
+          name: "Payroll Automation",
+          description: "Eliminate manual payroll errors and save 20+ hours monthly. Automate salary processing, TDS, statutory deductions with 100% accuracy.",
+          provider: {
+            "@type": "Organization",
+            name: "360 Biz Health",
+            url: "https://360bizhealth.com"
+          },
+          areaServed: "IN",
+          availableLanguage: "en-IN"
+        },
+        {
+          "@type": "Service",
+          "@id": "https://360bizhealth.com/#compliance",
+          name: "Statutory Compliance",
+          description: "Stay 100% compliant with PF, ESIC, PT, LWF & labor laws without manual effort. Zero compliance risk with automated government filings.",
+          provider: {
+            "@type": "Organization",
+            name: "360 Biz Health",
+            url: "https://360bizhealth.com"
+          },
+          areaServed: "IN",
+          availableLanguage: "en-IN"
+        },
+        {
+          "@type": "Service",
+          "@id": "https://360bizhealth.com/#hr-outsourcing",
+          name: "End-to-End HR Outsourcing",
+          description: "Professional HR management without hiring an HR team. Recruitment, onboarding, performance management, and employee relations.",
+          provider: {
+            "@type": "Organization",
+            name: "360 Biz Health",
+            url: "https://360bizhealth.com"
+          },
+          areaServed: "IN",
+          availableLanguage: "en-IN"
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://360bizhealth.com/#organization",
+          name: "360 Biz Health",
+          url: "https://360bizhealth.com",
+          description: "HR, compliance & finance solutions for Indian startups and SMEs",
+          areaServed: "IN",
+          knowsAbout: ["Payroll Management", "HR Services", "Compliance", "Tax Planning", "Financial Advisory"],
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: "4.9",
+            ratingCount: "120"
+          }
+        }
+      ]
+    }
+  });
 
   const handleWhatsAppClick = () => {
     window.open(
@@ -230,7 +300,7 @@ export default function Services() {
                   >
                     {/* Icon Container */}
                     <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                      <Icon className="w-8 h-8 text-white" />
+                      <Icon className="w-8 h-8 text-white" aria-label={`${service.title} service icon`} />
                     </div>
 
                     {/* Problem Highlight */}
@@ -294,7 +364,7 @@ export default function Services() {
               {/* Trust Reason 1 */}
               <div className="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-lg hover:border-primary transition-all">
                 <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center mb-4">
-                  <Award className="w-7 h-7 text-white" />
+                  <Award className="w-7 h-7 text-white" aria-label="10+ years experience" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">
                   10+ Years Experience
@@ -307,7 +377,7 @@ export default function Services() {
               {/* Trust Reason 2 */}
               <div className="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-lg hover:border-primary transition-all">
                 <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center mb-4">
-                  <Users className="w-7 h-7 text-white" />
+                  <Users className="w-7 h-7 text-white" aria-label="Expert team" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">
                   Expert Team
@@ -320,7 +390,7 @@ export default function Services() {
               {/* Trust Reason 3 */}
               <div className="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-lg hover:border-primary transition-all">
                 <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center mb-4">
-                  <Shield className="w-7 h-7 text-white" />
+                  <Shield className="w-7 h-7 text-white" aria-label="Zero compliance issues" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">
                   Zero Compliance Issues
@@ -333,7 +403,7 @@ export default function Services() {
               {/* Trust Reason 4 */}
               <div className="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-lg hover:border-primary transition-all">
                 <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center mb-4">
-                  <TrendingUp className="w-7 h-7 text-white" />
+                  <TrendingUp className="w-7 h-7 text-white" aria-label="Proven ROI" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">
                   Proven ROI
@@ -346,7 +416,7 @@ export default function Services() {
               {/* Trust Reason 5 */}
               <div className="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-lg hover:border-primary transition-all">
                 <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-pink-500 to-pink-600 flex items-center justify-center mb-4">
-                  <Handshake className="w-7 h-7 text-white" />
+                  <Handshake className="w-7 h-7 text-white" aria-label="Dedicated support" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">
                   Dedicated Support
@@ -359,7 +429,7 @@ export default function Services() {
               {/* Trust Reason 6 */}
               <div className="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-lg hover:border-primary transition-all">
                 <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-600 flex items-center justify-center mb-4">
-                  <Zap className="w-7 h-7 text-white" />
+                  <Zap className="w-7 h-7 text-white" aria-label="Quick implementation" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">
                   Quick Implementation

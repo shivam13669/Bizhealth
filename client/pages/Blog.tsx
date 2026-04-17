@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSEO } from "../hooks/use-seo";
 import {
   MessageCircle,
   Search,
@@ -128,6 +129,23 @@ const categories = [
 
 export default function Blog() {
   const navigate = useNavigate();
+
+  useSEO({
+    title: "HR, Payroll & Finance Blog | Tips, Guides & Insights | 360 Biz Health",
+    description: "Read expert articles on payroll management, HR practices, compliance, GST, tax planning, and business finance. Stay updated with latest HR trends.",
+    keywords: "HR blog, payroll blog, compliance guide, tax tips, HRMS, business finance, startup HR",
+    canonical: "https://360bizhealth.com/blog",
+    url: "https://360bizhealth.com/blog",
+    type: "website",
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      name: "360 Biz Health Blog",
+      description: "Expert articles on HR, payroll, compliance and finance",
+      url: "https://360bizhealth.com/blog"
+    }
+  });
+
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
 

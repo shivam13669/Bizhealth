@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSEO } from "../hooks/use-seo";
 
 import {
   ArrowRight,
@@ -19,6 +20,35 @@ import Footer from "../components/Footer";
 
 export default function Index() {
   const navigate = useNavigate();
+
+  useSEO({
+    title: "HR, Payroll & Finance Solutions for Indian Startups | 360 Biz Health",
+    description: "360 Biz Health offers complete HR, payroll automation, compliance & tax advisory solutions for Indian startups & SMEs. Save 20+ hours monthly, 95% client retention.",
+    keywords: "HR services India, payroll management, compliance, tax planning, startup HR, SME solutions, financial advisory",
+    canonical: "https://360bizhealth.com",
+    url: "https://360bizhealth.com",
+    type: "website",
+    image: "https://360bizhealth.com/logo.png",
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "360 Biz Health",
+      url: "https://360bizhealth.com",
+      description: "HR, payroll, compliance & financial advisory services for Indian startups and SMEs",
+      logo: "https://360bizhealth.com/logo.png",
+      sameAs: ["https://www.facebook.com/360bizhealth", "https://www.linkedin.com/company/360bizhealth"],
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "Business Support",
+        telephone: "+91-9999999999"
+      },
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: "4.9",
+        ratingCount: "120"
+      }
+    }
+  });
 
   const handleWhatsAppClick = () => {
     window.open(

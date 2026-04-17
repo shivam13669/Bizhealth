@@ -1,12 +1,32 @@
 import { useState } from "react";
 import { ArrowRight, MessageCircle, Mail, Phone, MapPin, ChevronDown } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useSEO } from "../hooks/use-seo";
 
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 
 export default function Contact() {
   const navigate = useNavigate();
+
+  useSEO({
+    title: "Contact Us | Get Your Free HR & Payroll Consultation | 360 Biz Health",
+    description: "Get in touch with 360 Biz Health for a free consultation on payroll automation, compliance, and tax planning. Fast response, dedicated support team.",
+    keywords: "contact 360 biz health, HR consultation, payroll consultation, free advisory, support",
+    canonical: "https://360bizhealth.com/contact",
+    url: "https://360bizhealth.com/contact",
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      mainEntity: {
+        "@type": "Organization",
+        name: "360 Biz Health",
+        url: "https://360bizhealth.com",
+        email: "hello@360bizhealth.com",
+        telephone: "+91-9999999999"
+      }
+    }
+  });
 
   const handleWhatsAppClick = () => {
     window.open(
