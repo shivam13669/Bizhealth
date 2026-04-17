@@ -4,6 +4,12 @@ import {
   ArrowRight,
   MessageCircle,
   CheckCircle,
+  Award,
+  Users,
+  Shield,
+  TrendingUp,
+  Handshake,
+  Zap,
 } from "lucide-react";
 import { servicesData } from "@shared/services";
 
@@ -270,6 +276,117 @@ export default function Services() {
                   </button>
                 );
               })}
+            </div>
+          </div>
+        </section>
+
+        {/* Why Trust Us Section */}
+        <section className="py-20 px-4 bg-gradient-to-b from-white to-blue-50">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-4xl font-bold text-center mb-4 text-gray-900">
+              Why Trust 360 Biz Health?
+            </h2>
+            <p className="text-center text-gray-600 mb-16 max-w-2xl mx-auto">
+              Proven expertise, dedicated support, and real results. Here's why 120+ businesses trust us with their HR, compliance, and finance.
+            </p>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* Trust Reason 1 */}
+              <div className="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-lg hover:border-primary transition-all">
+                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-4">
+                  <Award className="w-6 h-6 text-blue-600" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  10+ Years Experience
+                </h3>
+                <p className="text-gray-700">
+                  Decade of expertise across HR, payroll, compliance, and taxation. We've handled it all.
+                </p>
+              </div>
+
+              {/* Trust Reason 2 */}
+              <div className="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-lg hover:border-primary transition-all">
+                <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mb-4">
+                  <Users className="w-6 h-6 text-green-600" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  Expert Team
+                </h3>
+                <p className="text-gray-700">
+                  Chartered Accountants, HR professionals, and tax experts on board. Real credentials, real expertise.
+                </p>
+              </div>
+
+              {/* Trust Reason 3 */}
+              <div className="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-lg hover:border-primary transition-all">
+                <div className="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center mb-4">
+                  <Shield className="w-6 h-6 text-purple-600" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  Zero Compliance Issues
+                </h3>
+                <p className="text-gray-700">
+                  95% client retention with zero compliance penalties. We're proactive, not reactive.
+                </p>
+              </div>
+
+              {/* Trust Reason 4 */}
+              <div className="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-lg hover:border-primary transition-all">
+                <div className="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center mb-4">
+                  <TrendingUp className="w-6 h-6 text-orange-600" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  Proven ROI
+                </h3>
+                <p className="text-gray-700">
+                  Average client saves ₹5-15L annually. That's why they stay with us for years.
+                </p>
+              </div>
+
+              {/* Trust Reason 5 */}
+              <div className="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-lg hover:border-primary transition-all">
+                <div className="w-12 h-12 rounded-full bg-pink-100 flex items-center justify-center mb-4">
+                  <Handshake className="w-6 h-6 text-pink-600" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  Dedicated Support
+                </h3>
+                <p className="text-gray-700">
+                  You get a personal Key Account Manager, not a support ticket. We care about your success.
+                </p>
+              </div>
+
+              {/* Trust Reason 6 */}
+              <div className="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-lg hover:border-primary transition-all">
+                <div className="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center mb-4">
+                  <Zap className="w-6 h-6 text-indigo-600" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  Quick Implementation
+                </h3>
+                <p className="text-gray-700">
+                  Most clients go live in 3-4 weeks. Fast, smooth, with minimal disruption to your business.
+                </p>
+              </div>
+            </div>
+
+            {/* Trust Stats */}
+            <div className="mt-16 grid md:grid-cols-2 gap-8">
+              <div className="bg-gradient-to-br from-primary/10 to-blue-100/30 rounded-2xl p-8 border border-primary/20">
+                <p className="text-sm font-semibold text-primary mb-2">CLIENT SATISFACTION</p>
+                <p className="text-4xl font-black text-gray-900 mb-2">95%</p>
+                <p className="text-gray-700">
+                  of clients stay with us for 3+ years. The best indicator of trust is repeat business.
+                </p>
+              </div>
+
+              <div className="bg-gradient-to-br from-green-100/30 to-emerald-100/30 rounded-2xl p-8 border border-green-200">
+                <p className="text-sm font-semibold text-green-700 mb-2">MONEY SAVED</p>
+                <p className="text-4xl font-black text-gray-900 mb-2">₹50Cr+</p>
+                <p className="text-gray-700">
+                  Payroll processed safely and compliantly. Our clients' businesses run smoothly, year after year.
+                </p>
+              </div>
             </div>
           </div>
         </section>
