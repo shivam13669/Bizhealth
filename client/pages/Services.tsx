@@ -150,7 +150,7 @@ export default function Services() {
               </h1>
 
               <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-12 leading-relaxed">
-                Stop juggling spreadsheets and compliance deadlines. We automate payroll, ensure compliance, and handle taxes—so you can focus on growing your business.
+                Stop juggling spreadsheets and compliance deadlines. We automate payroll, ensure compliance, and handle taxes so you can focus on growing your business.
               </p>
 
               {/* CTA Buttons in Hero */}
@@ -216,7 +216,7 @@ export default function Services() {
               Problem-Solving Solutions for Your Business
             </h2>
             <p className="text-center text-gray-600 mb-16 max-w-2xl mx-auto">
-              We don't just provide services — we solve real business problems and deliver measurable results.
+              We don't just provide services, we solve real business problems and deliver measurable results.
             </p>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
