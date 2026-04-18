@@ -50,6 +50,8 @@ export default function Index() {
       "@context": "https://schema.org",
       "@type": "Organization",
       name: "360 Biz Health",
+      alternateName: "360bizhealth",
+      legalName: "360 Biz Health",
       url: "https://360bizhealth.com",
       description: "HR, payroll, compliance & financial advisory services for Indian startups and SMEs",
       logo: "https://360bizhealth.com/logo.png",
