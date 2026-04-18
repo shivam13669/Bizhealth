@@ -29,6 +29,23 @@ export default function Index() {
     url: "https://360bizhealth.com",
     type: "website",
     image: "https://360bizhealth.com/logo.png",
+    localBusiness: {
+      name: "360 Biz Health",
+      address: "New Delhi, India",
+      telephone: "+91-7906003449",
+      email: "360bizhealth@gmail.com",
+      areaServed: ["Delhi", "India"],
+      priceRange: "₹₹",
+      hours: {
+        "Monday": "09:00 - 18:00",
+        "Tuesday": "09:00 - 18:00",
+        "Wednesday": "09:00 - 18:00",
+        "Thursday": "09:00 - 18:00",
+        "Friday": "09:00 - 18:00",
+        "Saturday": "10:00 - 16:00",
+        "Sunday": "Closed"
+      }
+    },
     schema: {
       "@context": "https://schema.org",
       "@type": "Organization",
