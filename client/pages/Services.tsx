@@ -87,7 +87,7 @@ export default function Services() {
   const navigate = useNavigate();
 
   useSEO({
-    title: "HR, Compliance & Finance Services | Payroll, Tax Planning & Compliance",
+    title: "360 Biz Health - HR, Compliance & Finance Services | Payroll & Tax Planning",
     description: "Complete HR, payroll automation, statutory compliance, tax planning & financial advisory services for startups & SMEs. Save 20+ hours monthly & reduce taxes by 15-25%.",
     keywords: "payroll automation, HR services, compliance management, tax planning, statutory compliance, ESIC, PF filing, HR outsourcing, financial advisory, tax consultant",
     canonical: "https://360bizhealth.com/services",

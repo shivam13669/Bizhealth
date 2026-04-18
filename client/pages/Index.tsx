@@ -22,7 +22,7 @@ export default function Index() {
   const navigate = useNavigate();
 
   useSEO({
-    title: "HR, Payroll & Finance Solutions for Indian Startups",
+    title: "360 Biz Health - HR, Payroll & Finance Solutions for Indian Startups",
     description: "360 Biz Health offers complete HR, payroll automation, compliance & tax advisory solutions for Indian startups & SMEs. Save 20+ hours monthly, 95% client retention.",
     keywords: "HR services India, payroll management, compliance, tax planning, startup HR, SME solutions, financial advisory",
     canonical: "https://360bizhealth.com",
