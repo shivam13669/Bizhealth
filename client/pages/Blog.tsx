@@ -151,7 +151,7 @@ export default function Blog() {
 
   const handleWhatsAppClick = () => {
     window.open(
-      "https://wa.me/919999999999?text=Hi%20360%20Biz%20Health,%20I%20would%20like%20to%20know%20more%20about%20your%20services.",
+      "https://wa.me/917906003449?text=Hi%20360%20Biz%20Health,%20I%20would%20like%20to%20know%20more%20about%20your%20services.",
       "_blank"
     );
   };
