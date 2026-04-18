@@ -82,7 +82,7 @@ export default function Index() {
 
   const handleWhatsAppClick = () => {
     window.open(
-      "https://wa.me/919999999999?text=Hi%20360%20Biz%20Health,%20I%20would%20like%20to%20know%20more%20about%20your%20services.",
+      "https://wa.me/917906003449?text=Hi%20360%20Biz%20Health,%20I%20would%20like%20to%20know%20more%20about%20your%20services.",
       "_blank"
     );
   };
@@ -109,7 +109,7 @@ export default function Index() {
         const requirement = formData.get("requirement") as string;
         const whatsappMessage = `Hi 360 Biz Health, I'm ${formData.get("name")} from ${company}. I'm interested in: ${requirement}`;
         window.open(
-          `https://wa.me/919999999999?text=${encodeURIComponent(whatsappMessage)}`,
+          `https://wa.me/917906003449?text=${encodeURIComponent(whatsappMessage)}`,
           "_blank"
         );
 
@@ -682,7 +682,7 @@ export default function Index() {
                     type="tel"
                     name="phone"
                     className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition placeholder-gray-400 bg-white"
-                    placeholder="+91 9999999999"
+                    placeholder="+91 7906003449"
                   />
                 </div>
 
