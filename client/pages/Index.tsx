@@ -48,25 +48,35 @@ export default function Index() {
     },
     schema: {
       "@context": "https://schema.org",
-      "@type": "Organization",
-      name: "360 Biz Health",
-      alternateName: "360bizhealth",
-      legalName: "360 Biz Health",
-      url: "https://360bizhealth.com",
-      description: "HR, payroll, compliance & financial advisory services for Indian startups and SMEs",
-      logo: "https://360bizhealth.com/logo.png",
-      sameAs: ["https://www.facebook.com/360bizhealth", "https://www.linkedin.com/company/360bizhealth"],
-      contactPoint: {
-        "@type": "ContactPoint",
-        contactType: "Business Support",
-        telephone: "+91-7906003449",
-        email: "360bizhealth@gmail.com"
-      },
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.9",
-        ratingCount: "120"
-      }
+      "@graph": [
+        {
+          "@type": "Organization",
+          name: "360 Biz Health",
+          alternateName: "360bizhealth",
+          legalName: "360 Biz Health",
+          url: "https://360bizhealth.com",
+          description: "HR, payroll, compliance & financial advisory services for Indian startups and SMEs",
+          logo: "https://360bizhealth.com/logo.png",
+          sameAs: ["https://www.facebook.com/360bizhealth", "https://www.linkedin.com/company/360bizhealth"],
+          contactPoint: {
+            "@type": "ContactPoint",
+            contactType: "Business Support",
+            telephone: "+91-7906003449",
+            email: "360bizhealth@gmail.com"
+          },
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: "4.9",
+            ratingCount: "120"
+          }
+        },
+        {
+          "@type": "WebSite",
+          name: "360 Biz Health",
+          alternateName: "360bizhealth",
+          url: "https://360bizhealth.com"
+        }
+      ]
     }
   });
 
