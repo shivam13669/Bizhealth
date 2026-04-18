@@ -4,21 +4,40 @@ import { getServiceBySlug } from "@shared/services";
 import { useSEO } from "../hooks/use-seo";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+import Breadcrumb from "../components/Breadcrumb";
 
 export default function ServiceDetail() {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const service = slug ? getServiceBySlug(slug) : null;
 
+  // Generate dynamic keywords based on service type
+  const getKeywords = (serviceSlug: string): string => {
+    const keywordMap: Record<string, string> = {
+      "payroll-automation": "payroll automation, payroll software, salary processing, TDS deduction, payroll management, automated payroll system, employee payroll, GST payroll",
+      "statutory-compliance": "statutory compliance, PF compliance, ESIC filing, compliance management, labor law compliance, statutory requirements, compliance automation",
+      "hr-outsourcing": "HR outsourcing, HR services, HR management, HR support, HR consulting, human resources outsourcing, HR solutions",
+      "tax-advisory": "tax advisory, tax planning, income tax consultant, tax consultation, tax strategies, tax optimization, tax compliance",
+      "corporate-insurance": "corporate insurance, employee insurance, group insurance, health insurance, business insurance, insurance advisory, insurance solutions",
+      "ip-branding": "IP registration, trademark registration, brand protection, intellectual property, copyright protection, patent registration, IP services"
+    };
+    return keywordMap[serviceSlug] || `${service?.title}, HR services, compliance, India`;
+  };
+
   // Set SEO metadata for the service page
   if (service) {
     useSEO({
-      title: `${service.title} | Services`,
+      title: `${service.title} for Startups & SMEs | 360 Biz Health`,
       description: service.description,
-      keywords: `${service.title}, ${service.benefit}, HR services`,
+      keywords: getKeywords(service.slug),
       canonical: `https://360bizhealth.com/services/${service.slug}`,
       url: `https://360bizhealth.com/services/${service.slug}`,
       type: "service",
+      breadcrumbs: [
+        { name: "Home", url: "https://360bizhealth.com" },
+        { name: "Services", url: "https://360bizhealth.com/services" },
+        { name: service.title, url: `https://360bizhealth.com/services/${service.slug}` }
+      ],
       schema: {
         "@context": "https://schema.org",
         "@type": "Service",
@@ -96,13 +115,13 @@ export default function ServiceDetail() {
       <main className="pt-20">
         {/* Breadcrumb */}
         <div className="max-w-7xl mx-auto px-4 py-6">
-          <button
-            onClick={() => navigate("/services")}
-            className="flex items-center gap-2 text-primary hover:text-blue-700 font-medium mb-8"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back to All Services
-          </button>
+          <Breadcrumb
+            items={[
+              { label: "Home", href: "/" },
+              { label: "Services", href: "/services" },
+              { label: service.title }
+            ]}
+          />
         </div>
 
         {/* Hero Section */}
@@ -298,6 +317,40 @@ export default function ServiceDetail() {
             </div>
           </section>
         )}
+
+        {/* Related Blog Posts */}
+        <section className="py-20 px-4 bg-white">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-4xl font-bold mb-4">Learn More</h2>
+            <p className="text-gray-600 mb-12 max-w-2xl">
+              Read our blog for more insights on {service.title.toLowerCase()}
+            </p>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {[
+                { id: 1, title: "Why HRMS is Essential for Growing Businesses", category: "HR Technology" },
+                { id: 2, title: "Complete Guide to GST Compliance in 2024", category: "Taxation" },
+                { id: 3, title: "PF & ESIC Compliance: What Every Business Should Know", category: "Compliance" }
+              ].map((post) => (
+                <button
+                  key={post.id}
+                  onClick={() => navigate(`/blog/${post.id}`)}
+                  className="bg-gradient-to-br from-blue-50 to-blue-100/30 border border-blue-200 rounded-2xl p-6 hover:shadow-lg hover:-translate-y-1 transition-all text-left group"
+                >
+                  <span className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-3 block">
+                    {post.category}
+                  </span>
+                  <h3 className="text-lg font-bold text-gray-900 mb-4 group-hover:text-primary transition-colors">
+                    {post.title}
+                  </h3>
+                  <div className="flex items-center gap-2 text-primary font-semibold">
+                    Read Article <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* Final CTA */}
         <section className="py-20 px-4 bg-gradient-to-r from-primary via-blue-600 to-primary text-white">

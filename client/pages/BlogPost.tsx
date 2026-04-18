@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useSEO } from "../hooks/use-seo";
+import Breadcrumb from "../components/Breadcrumb";
 import {
   Menu,
   X,
@@ -426,6 +427,216 @@ const blogPostsData = [
       <p>Digital transformation in HR is not optional—it's essential for staying competitive. Start your transformation journey today to unlock the full potential of your HR function.</p>
     `,
   },
+  {
+    id: 9,
+    title: "ESIC Registration Process for Startups: Complete Step-by-Step Guide",
+    excerpt:
+      "New to ESIC? Learn how to register your startup, calculate contributions, and stay compliant with ESIC requirements in India.",
+    category: "Compliance",
+    author: "Rajesh Kumar",
+    date: "February 20, 2024",
+    readTime: "7 min read",
+    image: "🏢",
+    content: `
+      <h2>What is ESIC and Who Needs to Register?</h2>
+      <p>The Employees' State Insurance Corporation (ESIC) is a self-financing social security and health insurance scheme for Indian workers. If your startup has 10 or more employees, ESIC registration is mandatory.</p>
+
+      <h2>Step-by-Step ESIC Registration Process</h2>
+      <h3>Step 1: Gather Required Documents</h3>
+      <ul>
+        <li>Company registration certificate</li>
+        <li>PAN and TAN documents</li>
+        <li>Proof of address</li>
+        <li>List of employees</li>
+        <li>Bank account details</li>
+      </ul>
+
+      <h3>Step 2: Online Registration</h3>
+      <p>Visit the ESIC portal and complete the online registration form with your company details, employee information, and establishment details.</p>
+
+      <h3>Step 3: Submit Documents</h3>
+      <p>Upload all required documents on the portal and wait for verification by the ESIC office.</p>
+
+      <h3>Step 4: Receive Registration</h3>
+      <p>Once approved, you'll receive your ESIC registration number and can begin paying contributions.</p>
+
+      <h2>ESIC Contribution Breakdown</h2>
+      <ul>
+        <li>Employee contribution: 0.75% of wages</li>
+        <li>Employer contribution: 3.25% of wages</li>
+        <li>Total: 4% of wages</li>
+      </ul>
+
+      <h2>Filing and Payment Deadlines</h2>
+      <p>ESIC contributions must be paid monthly before the 15th of the following month. Late payments attract penalties and interest.</p>
+
+      <h2>Common ESIC Mistakes to Avoid</h2>
+      <ul>
+        <li>Delaying registration beyond the mandatory period</li>
+        <li>Incomplete employee information</li>
+        <li>Incorrect wage calculations</li>
+        <li>Missing payment deadlines</li>
+        <li>Not updating employee details timely</li>
+      </ul>
+
+      <h2>Benefits for Your Employees</h2>
+      <p>Once registered, your employees get access to medical benefits, disability benefits, and other social security coverage, which improves employee retention and satisfaction.</p>
+
+      <h2>Conclusion</h2>
+      <p>ESIC registration is crucial for compliance and protecting your employees. Automate this process to avoid penalties and ensure timely filings.</p>
+    `,
+  },
+  {
+    id: 10,
+    title: "PF Compliance Checklist for SMEs: Never Miss a Deadline Again",
+    excerpt:
+      "Are you handling PF correctly? Use this complete checklist to ensure your SME complies with all PF regulations and avoids penalties.",
+    category: "Compliance",
+    author: "Priya Sharma",
+    date: "February 15, 2024",
+    readTime: "6 min read",
+    image: "📋",
+    content: `
+      <h2>PF Compliance Checklist for SMEs</h2>
+      <p>Provident Fund (PF) compliance is critical for SMEs in India. Non-compliance can result in penalties up to ₹1,000 per day per employee. Here's your complete compliance checklist.</p>
+
+      <h2>Pre-Registration Requirements</h2>
+      <ul>
+        <li>✓ Obtain Employer Registration Number (ERN)</li>
+        <li>✓ Register with EPFO</li>
+        <li>✓ Activate member accounts for all eligible employees</li>
+        <li>✓ Collect KYC documents from employees</li>
+      </ul>
+
+      <h2>Monthly Compliance Tasks</h2>
+      <ul>
+        <li>✓ Calculate PF contributions (12% employee + 12% employer)</li>
+        <li>✓ Prepare and share salary slips with PF deductions</li>
+        <li>✓ Maintain attendance records</li>
+        <li>✓ Generate wage register</li>
+        <li>✓ Submit ECR (Electronic Challan cum Return) before 15th</li>
+        <li>✓ Pay PF contributions before 15th of next month</li>
+      </ul>
+
+      <h2>Quarterly Compliance Tasks</h2>
+      <ul>
+        <li>✓ Reconcile EPFO records with internal records</li>
+        <li>✓ Check for any discrepancies in member accounts</li>
+        <li>✓ Update member details if changed</li>
+      </ul>
+
+      <h2>Annual Compliance Tasks</h2>
+      <ul>
+        <li>✓ Submit annual return</li>
+        <li>✓ Reconcile PF accounts</li>
+        <li>✓ Conduct internal audit of PF records</li>
+        <li>✓ Prepare compliance report</li>
+      </ul>
+
+      <h2>Critical Deadlines You Cannot Miss</h2>
+      <table border="1" cellpadding="5">
+        <tr>
+          <td><strong>Task</strong></td>
+          <td><strong>Deadline</strong></td>
+        </tr>
+        <tr>
+          <td>ECR Submission</td>
+          <td>15th of next month</td>
+        </tr>
+        <tr>
+          <td>PF Payment</td>
+          <td>15th of next month</td>
+        </tr>
+        <tr>
+          <td>Annual Return</td>
+          <td>30th June</td>
+        </tr>
+      </table>
+
+      <h2>Red Flags: When You're Non-Compliant</h2>
+      <ul>
+        <li>Missing member contributions</li>
+        <li>Late ECR submissions</li>
+        <li>Incorrect employee details</li>
+        <li>Wage mismatch between payroll and EPFO</li>
+        <li>Delayed annual reconciliation</li>
+      </ul>
+
+      <h2>How to Automate PF Compliance</h2>
+      <p>Using an automated HRMS system ensures you never miss a deadline and always stay compliant. Automated systems calculate contributions, generate ECR, and send timely payment reminders.</p>
+
+      <h2>Conclusion</h2>
+      <p>PF compliance is non-negotiable. Use this checklist monthly and quarterly to ensure your SME always remains compliant and protected from penalties.</p>
+    `,
+  },
+  {
+    id: 11,
+    title: "GST Return Filing Guide 2024: GSTR-1, GSTR-3B, and GSTR-9 Explained",
+    excerpt:
+      "Confused about GST returns? Complete guide to understanding GSTR-1, GSTR-3B, and GSTR-9 filing requirements with deadlines and common errors.",
+    category: "Taxation",
+    author: "Amit Patel",
+    date: "February 10, 2024",
+    readTime: "9 min read",
+    image: "💰",
+    content: `
+      <h2>Understanding GST Returns: An Overview</h2>
+      <p>If you're registered under GST in India, filing regular returns is mandatory. Let's break down each type of GST return and what you need to know.</p>
+
+      <h2>GSTR-1: Outward Supplies Return</h2>
+      <h3>What is GSTR-1?</h3>
+      <p>GSTR-1 is a monthly return that reports all taxable supplies you made during the month. This includes sales to registered businesses (B2B) and sales to consumers (B2C).</p>
+
+      <h3>GSTR-1 Filing Deadline</h3>
+      <p>GSTR-1 must be filed by the 11th of the following month. Late filing attracts a penalty of ₹100 per day (up to ₹5,000).</p>
+
+      <h3>What to Include in GSTR-1</h3>
+      <ul>
+        <li>Invoices for taxable supplies</li>
+        <li>Debit/credit note details</li>
+        <li>HSN code for each supply</li>
+        <li>Customer GSTIN (for B2B sales)</li>
+        <li>Reverse charge supplies</li>
+      </ul>
+
+      <h2>GSTR-3B: Monthly Return with ITC</h2>
+      <h3>What is GSTR-3B?</h3>
+      <p>GSTR-3B is the return where you declare your tax liability and claim Input Tax Credit (ITC). It's a simplified form that consolidates your sales and purchases.</p>
+
+      <h3>GSTR-3B Filing Deadline</h3>
+      <p>GSTR-3B must be filed by the 20th of the following month. This gives you time to reconcile with GSTR-1 and purchase invoices.</p>
+
+      <h3>Key Components of GSTR-3B</h3>
+      <ul>
+        <li>Outward taxable supplies value</li>
+        <li>Input tax credit claimed</li>
+        <li>Tax payable (Output - Input)</li>
+        <li>Interest and penalties</li>
+      </ul>
+
+      <h2>GSTR-9: Annual Return</h2>
+      <h3>What is GSTR-9?</h3>
+      <p>GSTR-9 is the annual reconciliation return filed at the end of the financial year. It reconciles all monthly GSTR-1 and GSTR-3B filings.</p>
+
+      <h3>GSTR-9 Filing Deadline</h3>
+      <p>GSTR-9 must be filed by 31st December of the following financial year.</p>
+
+      <h2>Common GST Filing Mistakes</h2>
+      <ul>
+        <li>Missing invoices in GSTR-1</li>
+        <li>Incorrect HSN codes</li>
+        <li>Wrong GSTIN of buyers</li>
+        <li>Claiming ITC without valid invoice</li>
+        <li>Mismatch between GSTR-1 and GSTR-3B</li>
+      </ul>
+
+      <h2>Automating GST Returns</h2>
+      <p>Using automated accounting software that integrates with GST portal makes filing easier, reduces errors, and ensures timely submissions.</p>
+
+      <h2>Conclusion</h2>
+      <p>GST compliance is essential for business credibility. Understand these returns, maintain proper records, and file on time to avoid penalties.</p>
+    `,
+  },
 ];
 
 export default function BlogPost() {
@@ -446,6 +657,19 @@ export default function BlogPost() {
       type: "article",
       image: "https://360bizhealth.com/logo.png",
       author: post.author,
+      breadcrumbs: [
+        { name: "Home", url: "https://360bizhealth.com" },
+        { name: "Blog", url: "https://360bizhealth.com/blog" },
+        { name: post.title, url: `https://360bizhealth.com/blog/${post.id}` }
+      ],
+      article: {
+        headline: post.title,
+        description: post.excerpt,
+        image: "https://360bizhealth.com/logo.png",
+        datePublished: post.date,
+        author: post.author,
+        wordCount: post.content ? post.content.split(/\s+/).length : 800
+      },
       schema: {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
@@ -608,14 +832,17 @@ export default function BlogPost() {
           </div>
 
           <div className="max-w-4xl mx-auto relative z-10">
-            {/* Back Button */}
-            <button
-              onClick={() => navigate("/blog")}
-              className="inline-flex items-center gap-2 text-blue-200 hover:text-white font-semibold mb-6 transition group block"
-            >
-              <span className="group-hover:-translate-x-1 transition-transform">←</span>
-              Back to Blog
-            </button>
+            {/* Breadcrumb */}
+            <div className="mb-6">
+              <Breadcrumb
+                items={[
+                  { label: "Home", href: "/" },
+                  { label: "Blog", href: "/blog" },
+                  { label: post.title }
+                ]}
+                dark
+              />
+            </div>
 
             {/* Category Badge */}
             <div className="inline-block mb-6">
@@ -693,6 +920,41 @@ export default function BlogPost() {
                   {post.author} is a content writer at 360 Biz Health with expertise in {post.category.toLowerCase()}. They share insights and best practices to help businesses succeed.
                 </p>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Related Services Section */}
+        <section className="py-20 px-4 bg-gray-50">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-4xl font-black text-gray-900 mb-4">
+              Relevant Services
+            </h2>
+            <p className="text-xl text-gray-600 mb-12">
+              Explore our services to implement the strategies covered in this article.
+            </p>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              {[
+                { title: "Payroll Automation", slug: "payroll-automation", icon: "💼" },
+                { title: "Statutory Compliance", slug: "statutory-compliance", icon: "✅" },
+              ].map((service) => (
+                <button
+                  key={service.slug}
+                  onClick={() => navigate(`/services/${service.slug}`)}
+                  className="bg-white border-2 border-gray-200 rounded-2xl p-6 hover:border-primary hover:shadow-lg hover:-translate-y-1 transition-all text-left group"
+                >
+                  <div className="flex items-start justify-between mb-4">
+                    <span className="text-4xl">{service.icon}</span>
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors">
+                    {service.title}
+                  </h3>
+                  <div className="flex items-center gap-2 text-primary font-semibold">
+                    Learn More <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </button>
+              ))}
             </div>
           </div>
         </section>

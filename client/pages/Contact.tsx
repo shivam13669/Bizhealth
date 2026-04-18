@@ -15,6 +15,7 @@ export default function Contact() {
     keywords: "contact 360 biz health, HR consultation, payroll consultation, free advisory, support",
     canonical: "https://360bizhealth.com/contact",
     url: "https://360bizhealth.com/contact",
+    type: "contact",
     schema: {
       "@context": "https://schema.org",
       "@type": "ContactPage",
@@ -25,7 +26,33 @@ export default function Contact() {
         email: "360bizhealth@gmail.com",
         telephone: "+91-7906003449"
       }
-    }
+    },
+    faqs: [
+      {
+        question: "What services do you offer?",
+        answer: "We provide comprehensive solutions including HR & HRMS, Statutory Compliance, Financial & Taxation, Insurance Advisory, and IP & Branding services. Each service is tailored to meet your specific business needs."
+      },
+      {
+        question: "How quickly can you respond to my inquiry?",
+        answer: "We typically respond to all inquiries within 24 hours. For urgent matters, you can reach us via WhatsApp for immediate assistance."
+      },
+      {
+        question: "Do you offer customized solutions?",
+        answer: "Yes, absolutely! Every business is unique. We work closely with our clients to understand their specific requirements and provide customized solutions that fit their needs and budget."
+      },
+      {
+        question: "What is your pricing model?",
+        answer: "Our pricing depends on the scope and complexity of your requirements. We offer flexible packages starting from basic support to comprehensive enterprise solutions. Contact us for a personalized quote."
+      },
+      {
+        question: "Can you help with implementation?",
+        answer: "Yes, we provide full implementation support including system setup, data migration, team training, and ongoing support to ensure smooth adoption of our solutions."
+      },
+      {
+        question: "Do you provide ongoing support?",
+        answer: "Yes, we offer comprehensive ongoing support including regular updates, maintenance, consultation, and quick troubleshooting to ensure your business runs smoothly."
+      }
+    ]
   });
 
   const handleWhatsAppClick = () => {
