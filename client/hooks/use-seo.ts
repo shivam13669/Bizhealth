@@ -95,8 +95,25 @@ export function useSEO(config: SEOConfig) {
     }
     canonical.setAttribute('href', config.canonical || window.location.href);
 
+    // Add application name and mobile web app title
+    const appNameTags = [
+      { name: 'application-name', content: '360 Biz Health' },
+      { name: 'apple-mobile-web-app-title', content: '360 Biz Health' },
+    ];
+
+    appNameTags.forEach(tag => {
+      let existing = document.querySelector(`meta[name="${tag.name}"]`);
+      if (!existing) {
+        existing = document.createElement('meta');
+        existing.setAttribute('name', tag.name);
+        document.head.appendChild(existing);
+      }
+      existing.setAttribute('content', tag.content);
+    });
+
     // Add Open Graph tags
     const ogTags = [
+      { property: 'og:site_name', content: '360 Biz Health' },
       { property: 'og:title', content: config.title },
       { property: 'og:description', content: config.description },
       { property: 'og:type', content: config.type || 'website' },
