@@ -12,7 +12,7 @@ export default function Contact() {
   useSEO({
     title: "Contact Us | Get Your Free HR & Payroll Consultation | 360 Biz Health",
     description: "Get in touch with 360 Biz Health for a free consultation on payroll automation, compliance, and tax planning. Fast response, dedicated support team.",
-    keywords: "contact 360 biz health, HR consultation, payroll consultation, free advisory, support",
+    keywords: "free HR consultation India, payroll software demo, compliance consultation, tax planning service, startup HR support, payroll automation consultation",
     canonical: "https://360bizhealth.com/contact",
     url: "https://360bizhealth.com/contact",
     type: "contact",
