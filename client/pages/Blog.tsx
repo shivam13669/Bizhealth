@@ -133,7 +133,7 @@ export default function Blog() {
   useSEO({
     title: "HR, Payroll & Finance Blog | Tips, Guides & Insights | 360 Biz Health",
     description: "Read expert articles on payroll management, HR practices, compliance, GST, tax planning, and business finance. Stay updated with latest HR trends.",
-    keywords: "HR blog, payroll blog, compliance guide, tax tips, HRMS, business finance, startup HR",
+    keywords: "HR blog, payroll tips for startups, GST compliance guide, tax planning India, HRMS software, PF filing guide, employee management, startup finance",
     canonical: "https://360bizhealth.com/blog",
     url: "https://360bizhealth.com/blog",
     type: "website",
