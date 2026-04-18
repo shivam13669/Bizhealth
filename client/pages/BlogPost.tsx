@@ -649,7 +649,7 @@ export default function BlogPost() {
   // Set SEO metadata for blog post
   if (post) {
     useSEO({
-      title: `${post.title} | Blog`,
+      title: `${post.title} | Blog | 360 Biz Health`,
       description: post.excerpt,
       keywords: `${post.category}, blog, ${post.title.split(' ').slice(0, 3).join(', ')}`,
       canonical: `https://360bizhealth.com/blog/${post.id}`,
