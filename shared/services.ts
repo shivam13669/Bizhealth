@@ -51,7 +51,7 @@ export const servicesData: ServiceDetail[] = [
     icon: DollarSign,
     color: "from-blue-500 to-blue-600",
     bgColor: "from-blue-50 to-blue-100/50",
-    forAudience: ["Startups (10-50)", "SMEs (50-500)", "Enterprises"],
+    forAudience: ["Individual", "Startups (10-50)", "SMEs (50-500)", "Enterprises"],
     features: [
       "✓ Automated salary processing",
       "✓ TDS & statutory deduction handling",
@@ -137,7 +137,7 @@ export const servicesData: ServiceDetail[] = [
     icon: FileCheck,
     color: "from-green-500 to-green-600",
     bgColor: "from-green-50 to-green-100/50",
-    forAudience: ["Startups (20-50)", "SMEs (50-500)", "Enterprises"],
+    forAudience: ["Individual", "Startups (20-50)", "SMEs (50-500)", "Enterprises"],
     features: [
       "✓ PF & ESIC automated filings",
       "✓ PT, LWF, and bonus calculations",
@@ -218,7 +218,7 @@ export const servicesData: ServiceDetail[] = [
     icon: Users,
     color: "from-purple-500 to-purple-600",
     bgColor: "from-purple-50 to-purple-100/50",
-    forAudience: ["Startups (20-100)", "SMEs (100-500)"],
+    forAudience: ["Individual", "Startups (20-100)", "SMEs (100-500)"],
     features: [
       "✓ Recruitment & onboarding",
       "✓ Performance management",
@@ -294,7 +294,7 @@ export const servicesData: ServiceDetail[] = [
     icon: TrendingUp,
     color: "from-orange-500 to-orange-600",
     bgColor: "from-orange-50 to-orange-100/50",
-    forAudience: ["Startups (All)", "SMEs (50-500)", "Enterprises"],
+    forAudience: ["Individual", "Startups (All)", "SMEs (50-500)", "Enterprises"],
     features: [
       "✓ GST & income tax planning",
       "✓ Cost optimization strategies",
@@ -375,7 +375,7 @@ export const servicesData: ServiceDetail[] = [
     icon: Shield,
     color: "from-pink-500 to-pink-600",
     bgColor: "from-pink-50 to-pink-100/50",
-    forAudience: ["Startups (30+)", "SMEs (50-500)", "Enterprises"],
+    forAudience: ["Individual", "Startups (30+)", "SMEs (50-500)", "Enterprises"],
     features: [
       "✓ Group health insurance programs",
       "✓ Accident & disability coverage",
@@ -456,7 +456,7 @@ export const servicesData: ServiceDetail[] = [
     icon: Brain,
     color: "from-indigo-500 to-indigo-600",
     bgColor: "from-indigo-50 to-indigo-100/50",
-    forAudience: ["Startups (All)", "SMEs (All)"],
+    forAudience: ["Individual", "Startups (All)", "SMEs (All)"],
     features: [
       "✓ Trademark registration & renewal",
       "✓ Copyright & IP protection",
