@@ -163,7 +163,7 @@ export default function Footer() {
               <li>
                 <p className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-1">Phone</p>
                 <a href="tel:+917906003449" className="text-slate-300 hover:text-primary transition font-semibold">
-                  +91 79060 03449
+                  +91 7906003449
                 </a>
               </li>
               <li>
