@@ -11,6 +11,9 @@ importers:
       dotenv:
         specifier: ^17.2.1
         version: 17.2.1
+      emailjs-com:
+        specifier: ^3.2.0
+        version: 3.2.0
       express:
         specifier: ^5.1.0
         version: 5.1.0
@@ -1803,6 +1806,11 @@ packages:
 
   electron-to-chromium@1.5.200:
     resolution: {integrity: sha512-rFCxROw7aOe4uPTfIAx+rXv9cEcGx+buAF4npnhtTqCJk5KDFRnh3+KYj7rdVh6lsFt5/aPs+Irj9rZ33WMA7w==}
+
+  emailjs-com@3.2.0:
+    resolution: {integrity: sha512-Prbz3E1usiAwGjMNYRv6EsJ5c373cX7/AGnZQwOfrpNJrygQJ15+E9OOq4pU8yC977Z5xMetRfc3WmDX6RcjAA==}
+    engines: {node: '>=12.0.0'}
+    deprecated: The SDK name changed to @emailjs/browser
 
   embla-carousel-react@8.6.0:
     resolution: {integrity: sha512-0/PjqU7geVmo6F734pmPqpyHqiM99olvyecY7zdweCw+6tKEXnrE90pBiBbMMU8s5tICemzpQ3hi5EpxzGW+JA==}
@@ -4497,6 +4505,8 @@ snapshots:
   ee-first@1.1.1: {}
 
   electron-to-chromium@1.5.200: {}
+
+  emailjs-com@3.2.0: {}
 
   embla-carousel-react@8.6.0(react@18.3.1):
     dependencies:
