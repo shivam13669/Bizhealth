@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useMemo } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { useSEO } from "../hooks/use-seo";
 import {
   ArrowRight,
@@ -85,13 +85,40 @@ const caseStudies = [
 
 export default function Services() {
   const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const selectedFilter = searchParams.get('type') || 'all';
+
+  const filterOptions = [
+    { id: 'all', label: 'All Services', count: 6 },
+    { id: 'individual', label: 'Individual', count: 0 },
+    { id: 'startup', label: 'Startup', count: 0 },
+    { id: 'sme', label: 'SME', count: 0 },
+    { id: 'enterprise', label: 'Enterprise', count: 0 },
+  ];
+
+  // Filter services based on selected type
+  const filteredServices = useMemo(() => {
+    if (selectedFilter === 'all') return servicesData;
+    return servicesData.filter(service => {
+      const audienceStr = service.forAudience.join(' ').toLowerCase();
+      return audienceStr.includes(selectedFilter.toLowerCase());
+    });
+  }, [selectedFilter]);
+
+  const handleFilterClick = (filterId: string) => {
+    if (filterId === 'all') {
+      setSearchParams({});
+    } else {
+      setSearchParams({ type: filterId });
+    }
+  };
 
   useSEO({
     title: "360 Biz Health - HR, Compliance & Finance Services | Payroll & Tax Planning",
     description: "Complete HR, payroll automation, statutory compliance, tax planning & financial advisory services for startups & SMEs. Save 20+ hours monthly & reduce taxes by 15-25%.",
-    keywords: "payroll automation, HR services, compliance management, tax planning, statutory compliance, ESIC, PF filing, HR outsourcing, financial advisory, tax consultant",
-    canonical: "https://360bizhealth.com/services",
-    url: "https://360bizhealth.com/services",
+    keywords: "payroll automation India, HR services for startups India, compliance management India, tax planning India, statutory compliance services, ESIC filing, PF compliance, HR outsourcing India, financial advisory India, payroll software India",
+    canonical: selectedFilter === 'all' ? "https://360bizhealth.com/services" : `https://360bizhealth.com/services?type=${selectedFilter}`,
+    url: selectedFilter === 'all' ? "https://360bizhealth.com/services" : `https://360bizhealth.com/services?type=${selectedFilter}`,
     type: "service",
     image: "https://360bizhealth.com/logo.png",
     schema: {
@@ -109,7 +136,8 @@ export default function Services() {
             url: "https://360bizhealth.com"
           },
           areaServed: "IN",
-          availableLanguage: "en-IN"
+          availableLanguage: "en-IN",
+          priceRange: "₹₹₹"
         },
         {
           "@type": "Service",
@@ -122,7 +150,8 @@ export default function Services() {
             url: "https://360bizhealth.com"
           },
           areaServed: "IN",
-          availableLanguage: "en-IN"
+          availableLanguage: "en-IN",
+          priceRange: "₹₹₹"
         },
         {
           "@type": "Service",
@@ -135,7 +164,8 @@ export default function Services() {
             url: "https://360bizhealth.com"
           },
           areaServed: "IN",
-          availableLanguage: "en-IN"
+          availableLanguage: "en-IN",
+          priceRange: "₹₹₹"
         },
         {
           "@type": "Organization",
@@ -152,12 +182,55 @@ export default function Services() {
           }
         }
       ]
-    }
+    },
+    localBusiness: {
+      name: "360 Biz Health",
+      address: "New Delhi, India",
+      telephone: "+91-7906003449",
+      email: "360bizhealth@gmail.com",
+      areaServed: ["Delhi", "India"],
+      priceRange: "₹₹₹",
+      hours: {
+        "Monday": "09:00 - 18:00",
+        "Tuesday": "09:00 - 18:00",
+        "Wednesday": "09:00 - 18:00",
+        "Thursday": "09:00 - 18:00",
+        "Friday": "09:00 - 18:00",
+        "Saturday": "10:00 - 16:00",
+        "Sunday": "Closed"
+      }
+    },
+    faqs: [
+      {
+        question: "How much does payroll automation cost?",
+        answer: "Our payroll automation pricing depends on the number of employees and complexity. We offer flexible packages starting from ₹5,000/month for small startups to enterprise custom pricing. Contact us for a personalized quote."
+      },
+      {
+        question: "Can you handle compliance for multiple locations?",
+        answer: "Yes, absolutely! We manage compliance across multiple states and locations. Our system handles state-specific regulations like different PT rates, ESIC applicability, and compliance requirements seamlessly."
+      },
+      {
+        question: "How long does implementation take?",
+        answer: "Most clients go live in 3-4 weeks. The timeline depends on the complexity of your payroll and data migration needs. We provide full support and training throughout the process."
+      },
+      {
+        question: "What is your client retention rate?",
+        answer: "We have 95% client retention rate with an average client lifetime of 3+ years. Our proactive support and proven results keep businesses coming back."
+      },
+      {
+        question: "Do you offer free consultation?",
+        answer: "Yes! We offer a free consultation where we analyze your current processes and show you exactly how much time and money you can save with our solutions. No obligation, just honest advice."
+      },
+      {
+        question: "What makes your compliance service different?",
+        answer: "We're proactive, not reactive. We file compliance before deadlines, monitor regulatory changes, and ensure zero penalties. Our clients have 0% compliance violation rate."
+      }
+    ]
   });
 
   const handleWhatsAppClick = () => {
     window.open(
-      "https://wa.me/917906003449?text=Hi%20360%20Biz%20Health,%20I%20would%20like%20to%20know%20more%20about%20your%20services.",
+      "https://wa.me/919999999999?text=Hi%20360%20Biz%20Health,%20I%20would%20like%20to%20know%20more%20about%20your%20services.",
       "_blank"
     );
   };
@@ -286,12 +359,34 @@ export default function Services() {
             <h2 className="text-4xl font-bold text-center mb-4 text-gray-900">
               Problem-Solving Solutions for Your Business
             </h2>
-            <p className="text-center text-gray-600 mb-16 max-w-2xl mx-auto">
+            <p className="text-center text-gray-600 mb-6 max-w-2xl mx-auto">
               We don't just provide services, we solve real business problems and deliver measurable results.
             </p>
-            
+
+            {/* Filter Buttons */}
+            <div className="flex flex-wrap justify-center gap-3 mb-16">
+              {filterOptions.map((option) => (
+                <button
+                  key={option.id}
+                  onClick={() => handleFilterClick(option.id)}
+                  className={`px-6 py-2 rounded-full font-semibold transition-all duration-300 ${
+                    selectedFilter === option.id
+                      ? 'bg-gradient-to-r from-primary to-blue-700 text-white shadow-lg'
+                      : 'bg-white border-2 border-gray-200 text-gray-700 hover:border-primary hover:text-primary'
+                  }`}
+                >
+                  {option.label}
+                </button>
+              ))}
+            </div>
+
+            {/* Results Count */}
+            <p className="text-center text-gray-600 mb-12 text-sm">
+              Showing {filteredServices.length} {filteredServices.length === 1 ? 'service' : 'services'}
+            </p>
+
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {servicesData.map((service, idx) => {
+              {filteredServices.map((service, idx) => {
                 const Icon = service.icon;
                 return (
                   <button
