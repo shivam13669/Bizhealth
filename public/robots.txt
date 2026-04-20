@@ -21,4 +21,3 @@ Allow: /
 Disallow: /admin/
 Disallow: /private/
 
-Sitemap: https://360bizhealth.com/sitemap.xml
