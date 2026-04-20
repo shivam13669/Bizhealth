@@ -2,6 +2,8 @@ import { useState } from "react";
 import { ArrowRight, MessageCircle, Mail, Phone, MapPin, ChevronDown } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useSEO } from "../hooks/use-seo";
+import { useToast } from "../hooks/use-toast";
+import { sendContactEmail } from "../lib/emailjs";
 
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
@@ -62,34 +64,46 @@ export default function Contact() {
     );
   };
 
+  const { toast } = useToast();
+
   const handleContactForm = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
+    const formElement = e.currentTarget;
+    const formData = new FormData(formElement);
 
-    // Google Sheets integration via Apps Script
-    const scriptURL =
-      "https://script.google.com/macros/d/YOUR_SCRIPT_ID/useless/do";
+    const contactData = {
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      phone: formData.get("phone") as string,
+      message: formData.get("message") as string,
+    };
 
+    setIsLoading(true);
     try {
-      const response = await fetch(scriptURL, {
-        method: "POST",
-        body: formData,
-      });
+      const emailSent = await sendContactEmail(contactData);
 
-      if (response.ok) {
-        const phone = formData.get("phone") as string;
-        const company = formData.get("company") as string;
-        const requirement = formData.get("requirement") as string;
-        const whatsappMessage = `Hi 360 Biz Health, I'm ${formData.get("name")} from ${company}. I'm interested in: ${requirement}`;
-        window.open(
-          `https://wa.me/917906003449?text=${encodeURIComponent(whatsappMessage)}`,
-          "_blank"
-        );
-
-        e.currentTarget.reset();
+      if (emailSent) {
+        toast({
+          title: "Thank you for contacting us",
+          description: "We'll get back to you within 24 hours.",
+        });
+        formElement.reset();
+      } else {
+        toast({
+          variant: "destructive",
+          title: "Error",
+          description: "Failed to send message. Please try again.",
+        });
       }
     } catch (error) {
       console.error("Form submission error:", error);
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Something went wrong. Please try again.",
+      });
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -121,6 +135,7 @@ export default function Contact() {
   ];
 
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   return (
     <div className="bg-white text-gray-900 min-h-screen">
@@ -271,10 +286,11 @@ export default function Contact() {
 
                     <button
                       type="submit"
-                      className="w-full bg-gradient-to-r from-primary to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-4 px-8 rounded-xl transition-all hover:shadow-xl shadow-lg inline-flex items-center justify-center gap-2"
+                      disabled={isLoading}
+                      className="w-full bg-gradient-to-r from-primary to-blue-700 hover:from-blue-700 hover:to-blue-800 disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed text-white font-bold py-4 px-8 rounded-xl transition-all hover:shadow-xl shadow-lg inline-flex items-center justify-center gap-2"
                     >
-                      Send Message
-                      <ArrowRight className="w-5 h-5" />
+                      {isLoading ? "Sending message..." : "Send Message"}
+                      {!isLoading && <ArrowRight className="w-5 h-5" />}
                     </button>
                   </form>
                 </div>
