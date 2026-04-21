@@ -75,9 +75,13 @@ export default function Index() {
         },
         {
           "@type": "WebSite",
-          name: "360 Biz Health",
-          alternateName: "360bizhealth",
-          url: "https://360bizhealth.com"
+          "name": "360 Biz Health",
+          "alternateName": ["360bizhealth.com", "360 Biz Health India"],
+          "url": "https://360bizhealth.com/",
+          "publisher": {
+            "@type": "Organization",
+            "name": "360 Biz Health"
+          }
         }
       ]
     }
