@@ -26,7 +26,7 @@ export default function Index() {
 
   useSEO({
     title: "360 Biz Health - HR, Payroll & Finance Solutions for Indian Startups",
-    description: "360BIZ from 360 Biz health simplifies employer-employee insurance, HR, Payroll & Finance. Explore our integrated health, wellness & lifestyle benefits today.",
+    description: "360BIZ from 360 Biz health simplifies employer-employee insurance, HR, Payroll & Finance . Explore our integrated health, wellness & lifestyle benefits today.",
     keywords: "HR services India, payroll management, compliance, tax planning, startup HR, SME solutions, financial advisory",
     canonical: "https://360bizhealth.com",
     url: "https://360bizhealth.com",
