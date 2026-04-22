@@ -25,9 +25,9 @@ export default function Index() {
   const [isLoading, setIsLoading] = useState(false);
 
   useSEO({
-    title: "360 Biz Health - HR, Payroll & Finance Solutions for Indian Startups",
+    title: "360 Biz Health - HR, Payroll & Finance Solutions",
     description: "360BIZ from 360 Biz health simplifies employer-employee insurance, HR, Payroll & Finance . Explore our integrated health, wellness & lifestyle benefits today.",
-    keywords: "HR services India, payroll management, compliance, tax planning, startup HR, SME solutions, financial advisory",
+    keywords: "HR services, payroll management, compliance, tax planning, startup HR, SME solutions, financial advisory",
     canonical: "https://360bizhealth.com",
     url: "https://360bizhealth.com",
     type: "website",
@@ -58,7 +58,7 @@ export default function Index() {
           alternateName: "360bizhealth",
           legalName: "360 Biz Health",
           url: "https://360bizhealth.com",
-          description: "HR, payroll, compliance & financial advisory services for Indian startups and SMEs",
+          description: "HR, payroll, compliance & financial advisory services for startups and SMEs",
           logo: "https://360bizhealth.com/logo.png",
           sameAs: ["https://www.facebook.com/360bizhealth", "https://www.linkedin.com/company/360bizhealth"],
           contactPoint: {
@@ -76,7 +76,7 @@ export default function Index() {
         {
           "@type": "WebSite",
           "name": "360 Biz Health",
-          "alternateName": ["360bizhealth.com", "360 Biz Health India"],
+          "alternateName": ["360 Biz Health"],
           "url": "https://360bizhealth.com/",
           "publisher": {
             "@type": "Organization",
